@@ -101,10 +101,10 @@ class Install {
 	public function add_settings_tabs() {
 		$install_tabs = [];
 		if ( current_user_can( 'install_plugins' ) ) {
-			$install_tabs['github_updater_install_plugin'] = esc_html__( 'Install Plugin', 'git-updater-pro' );
+			$install_tabs['git_updater_install_plugin'] = esc_html__( 'Install Plugin', 'git-updater-pro' );
 		}
 		if ( current_user_can( 'install_themes' ) ) {
-			$install_tabs['github_updater_install_theme'] = esc_html__( 'Install Theme', 'git-updater-pro' );
+			$install_tabs['git_updater_install_theme'] = esc_html__( 'Install Theme', 'git-updater-pro' );
 		}
 		add_filter(
 			'github_updater_add_settings_tabs',
@@ -128,11 +128,11 @@ class Install {
 	 * @param string $tab Name of tab.
 	 */
 	public function add_admin_page( $tab ) {
-		if ( 'github_updater_install_plugin' === $tab ) {
+		if ( 'git_updater_install_plugin' === $tab ) {
 			$this->install( 'plugin' );
 			$this->create_form( 'plugin' );
 		}
-		if ( 'github_updater_install_theme' === $tab ) {
+		if ( 'git_updater_install_theme' === $tab ) {
 			$this->install( 'theme' );
 			$this->create_form( 'theme' );
 		}
@@ -152,13 +152,13 @@ class Install {
 		}
 
 		// phpcs:disable WordPress.Security.NonceVerification.Missing
-		if ( isset( $_POST['option_page'] ) && 'github_updater_install' === $_POST['option_page'] ) {
-			if ( empty( $_POST['github_updater_branch'] ) ) {
-				$_POST['github_updater_branch'] = 'master';
+		if ( isset( $_POST['option_page'] ) && 'git_updater_install' === $_POST['option_page'] ) {
+			if ( empty( $_POST['git_updater_branch'] ) ) {
+				$_POST['git_updater_branch'] = 'master';
 			}
 
 			// Exit early if no repo entered.
-			if ( empty( $_POST['github_updater_repo'] ) ) {
+			if ( empty( $_POST['git_updater_repo'] ) ) {
 				echo '<h3>';
 				esc_html_e( 'A repository URI is required.', 'git-updater-pro' );
 				echo '</h3>';
@@ -167,12 +167,12 @@ class Install {
 			}
 
 			// Transform URI to owner/repo.
-			$headers                      = $this->parse_header_uri( sanitize_text_field( wp_unslash( $_POST['github_updater_repo'] ) ) );
-			$_POST['github_updater_repo'] = $headers['owner_repo'];
+			$headers                      = $this->parse_header_uri( sanitize_text_field( wp_unslash( $_POST['git_updater_repo'] ) ) );
+			$_POST['git_updater_repo'] = $headers['owner_repo'];
 
 			self::$install = $this->sanitize( $_POST );
 			// phpcs:ignore Squiz.PHP.DisallowMultipleAssignments.Found
-			self::$install['repo'] = self::$install['github_updater_install_repo'] = $headers['repo'];
+			self::$install['repo'] = self::$install['git_updater_install_repo'] = $headers['repo'];
 			// phpcs:enable
 
 			/*
@@ -180,14 +180,14 @@ class Install {
 			 * Save Access Token if present.
 			 * Check for GitHub Self-Hosted.
 			 */
-			if ( 'github' === self::$install['github_updater_api'] ) {
+			if ( 'github' === self::$install['git_updater_api'] ) {
 				self::$install = Singleton::get_instance( 'Fragen\Git_Updater\API\GitHub_API', $this, new \stdClass() )->remote_install( $headers, self::$install );
 			}
 
 			/*
 			 * Install from Zipfile.
 			 */
-			if ( 'zipfile' === self::$install['github_updater_api'] ) {
+			if ( 'zipfile' === self::$install['git_updater_api'] ) {
 				self::$install = Singleton::get_instance( 'Fragen\Git_Updater\API\Zipfile_API', $this )->remote_install( $headers, self::$install );
 			}
 
@@ -249,10 +249,10 @@ class Install {
 
 		$api = isset( $config['git'] ) ? $config['git'] : $api;
 
-		$_POST['github_updater_repo']   = $config['uri'];
-		$_POST['github_updater_branch'] = $config['branch'];
-		$_POST['github_updater_api']    = $api;
-		$_POST['option_page']           = 'github_updater_install';
+		$_POST['git_updater_repo']   = $config['uri'];
+		$_POST['git_updater_branch'] = $config['branch'];
+		$_POST['git_updater_api']    = $api;
+		$_POST['option_page']           = 'git_updater_install';
 		$_POST[ "{$api}_access_token" ] = $config['private'] ?: null;
 
 		if ( 'zipfile' === $config['git'] ) {
@@ -312,15 +312,15 @@ class Install {
 	public function create_form( $type ) {
 		// Bail if installing.
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing
-		if ( isset( $_POST['option_page'] ) && 'github_updater_install' === $_POST['option_page'] ) {
+		if ( isset( $_POST['option_page'] ) && 'git_updater_install' === $_POST['option_page'] ) {
 			return;
 		}
 
 		$this->register_settings( $type ); ?>
 		<form method="post">
 			<?php
-			settings_fields( 'github_updater_install' );
-			do_settings_sections( 'github_updater_install_' . $type );
+			settings_fields( 'git_updater_install' );
+			do_settings_sections( 'git_updater_install_' . $type );
 			if ( 'plugin' === $type ) {
 				submit_button( esc_html__( 'Install Plugin', 'git-updater-pro' ) );
 			}
@@ -349,8 +349,8 @@ class Install {
 		}
 
 		register_setting(
-			'github_updater_install',
-			'github_updater_install_' . $type,
+			'git_updater_install',
+			'git_updater_install_' . $type,
 			[ $this, 'sanitize' ]
 		);
 
@@ -359,7 +359,7 @@ class Install {
 			/* translators: variable is 'Plugin' or 'Theme' */
 			sprintf( esc_html__( 'Git Updater Install %s', 'git-updater-pro' ), $repo_type ),
 			[],
-			'github_updater_install_' . $type
+			'git_updater_install_' . $type
 		);
 
 		add_settings_field(
@@ -367,7 +367,7 @@ class Install {
 			/* translators: variable is 'Plugin' or 'Theme' */
 			sprintf( esc_html__( '%s URI', 'git-updater-pro' ), $repo_type ),
 			[ $this, 'get_repo' ],
-			'github_updater_install_' . $type,
+			'git_updater_install_' . $type,
 			$type
 		);
 
@@ -375,7 +375,7 @@ class Install {
 			$type . '_branch',
 			esc_html__( 'Repository Branch', 'git-updater-pro' ),
 			[ $this, 'branch' ],
-			'github_updater_install_' . $type,
+			'git_updater_install_' . $type,
 			$type
 		);
 
@@ -383,7 +383,7 @@ class Install {
 			$type . '_api',
 			esc_html__( 'Remote Repository Host', 'git-updater-pro' ),
 			[ $this, 'install_api' ],
-			'github_updater_install_' . $type,
+			'git_updater_install_' . $type,
 			$type
 		);
 
@@ -412,8 +412,8 @@ class Install {
 	 */
 	public function get_repo() {
 		?>
-		<label for="github_updater_repo">
-			<input type="text" style="width:50%;" id="github_updater_repo" name="github_updater_repo" value="" autofocus>
+		<label for="git_updater_repo">
+			<input type="text" style="width:50%;" id="git_updater_repo" name="git_updater_repo" value="" autofocus>
 			<br>
 			<span class="description">
 				<?php esc_html_e( 'URI is case sensitive.', 'git-updater-pro' ); ?>
@@ -427,8 +427,8 @@ class Install {
 	 */
 	public function branch() {
 		?>
-		<label for="github_updater_branch">
-			<input type="text" style="width:50%;" id="github_updater_branch" name="github_updater_branch" value="" placeholder="master">
+		<label for="git_updater_branch">
+			<input type="text" style="width:50%;" id="git_updater_branch" name="git_updater_branch" value="" placeholder="master">
 			<br>
 			<span class="description">
 				<?php esc_html_e( 'Enter branch name or leave empty for `master`', 'git-updater-pro' ); ?>
@@ -442,8 +442,8 @@ class Install {
 	 */
 	public function install_api() {
 		?>
-		<label for="github_updater_api">
-			<select id="github_updater_api" name="github_updater_api">
+		<label for="git_updater_api">
+			<select id="git_updater_api" name="git_updater_api">
 				<?php foreach ( self::$git_servers as $key => $value ) : ?>
 					<?php if ( self::$installed_apis[ $key . '_api' ] ) : ?>
 						<option value="<?php esc_attr_e( $key ); ?>" <?php selected( $key ); ?> >

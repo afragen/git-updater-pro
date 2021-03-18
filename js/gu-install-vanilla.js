@@ -19,7 +19,7 @@
 	});
 
 	// When the api selector changes.
-	let selects = document.querySelector('select[ name="github_updater_api" ]');
+	let selects = document.querySelector('select[ name="git_updater_api" ]');
 
 	// Only run when on proper tab.
 	if (selects !== null) {
