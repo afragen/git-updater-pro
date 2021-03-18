@@ -1,0 +1,48 @@
+<?php
+/**
+ * Git Updater PRO
+ *
+ * @author   Andy Fragen
+ * @license  MIT
+ * @link     https://github.com/afragen/git-updater-pro
+ * @package  git-updater-pro
+ */
+
+namespace Fragen\Git_Updater\PRO;
+
+/*
+ * Exit if called directly.
+ */
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+/**
+ * Class Init.
+ */
+class Init {
+
+    /**
+     * Load hooks.
+     *
+     * @return void
+     */
+	public function load_hooks() {
+		add_filter(
+			'gu_pro_dl_package',
+			function ( $response, $repo ) {
+				return array_merge( $response, [ 'package' => $repo->download_link ] );
+			},
+			10,
+			2
+		);
+
+		add_action(
+			'plugins_loaded',
+			function () {
+				( new Bootstrap() )->run();
+			}
+		);
+
+	}
+}

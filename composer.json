@@ -1,0 +1,47 @@
+{
+  "name": "afragen/git-updater-pro",
+  "description": "A GitHub Updater add-on plugin that unlocks PRO features of updating and installing plugins and themes.",
+  "type": "wordpress-plugin",
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "theme",
+    "updater",
+    "install"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andy Fragen",
+      "email": "andy@thefragens.com",
+      "homepage": "https://thefragens.com",
+      "role": "Developer"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/afragen/git-updater-pro"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/afragen/git-updater-pro/issues",
+    "source": "https://github.com/afragen/git-updater-pro"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=7.0",
+    "afragen/singleton": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Fragen\\Git_Updater\\PRO\\": "src/Git_Updater_PRO/"
+    }
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "wp i18n make-pot . languages/git-updater-pro.pot"
+    ]
+  }
+}
