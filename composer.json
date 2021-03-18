@@ -30,6 +30,9 @@
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "require-dev": {
+    "afragen/github-updater": "dev-master"
+  },
   "require": {
     "php": ">=7.0",
     "afragen/singleton": "dev-master"

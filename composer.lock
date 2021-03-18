@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab38b7214af726b01aca0523b6b4c642",
+    "content-hash": "c3fe45f37ac9951bd8831ca0295e6d5b",
     "packages": [
         {
             "name": "afragen/singleton",
@@ -54,11 +54,209 @@
             "time": "2020-12-24T03:45:00+00:00"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "afragen/github-updater",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/afragen/github-updater.git",
+                "reference": "096302c5e1a6f0fe0a622265cd3c6c1fbfb8702a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/afragen/github-updater/zipball/096302c5e1a6f0fe0a622265cd3c6c1fbfb8702a",
+                "reference": "096302c5e1a6f0fe0a622265cd3c6c1fbfb8702a",
+                "shasum": ""
+            },
+            "require": {
+                "afragen/singleton": "dev-master",
+                "afragen/wordpress-plugin-readme-parser": "dev-master",
+                "collizo4sky/persist-admin-notices-dismissal": "^1",
+                "php": ">=5.6"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Fragen\\GitHub_Updater\\": "src/GitHub_Updater/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andy Fragen",
+                    "email": "andy@thefragens.com",
+                    "homepage": "https://thefragens.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A plugin to automatically update GitHub, Bitbucket, GitLab, or Gitea hosted plugins, themes, and language packs. It also allows for remote installation of plugins or themes into WordPress.",
+            "keywords": [
+                "install",
+                "plugin",
+                "theme",
+                "updater",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/afragen/github-updater/issues",
+                "source": "https://github.com/afragen/github-updater"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/afragen",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-02-18T17:38:04+00:00"
+        },
+        {
+            "name": "afragen/wordpress-plugin-readme-parser",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/afragen/wordpress-plugin-readme-parser.git",
+                "reference": "f878b2a815caace5f331b827b356b4eab9610561"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/afragen/wordpress-plugin-readme-parser/zipball/f878b2a815caace5f331b827b356b4eab9610561",
+                "reference": "f878b2a815caace5f331b827b356b4eab9610561",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": "^1.7",
+                "php": ">=5.4"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "class-parser.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "WordPress.org",
+                    "homepage": "https://meta.trac.wordpress.org/browser/sites/trunk/wordpress.org/public_html/wp-content/plugins/plugin-directory/readme"
+                }
+            ],
+            "description": "A clone of the current WordPress.org Plugin Readme Parser, class-parser.php",
+            "keywords": [
+                "parser",
+                "readme",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/afragen/wordpress-plugin-readme-parser/issues",
+                "source": "https://github.com/afragen/wordpress-plugin-readme-parser/tree/master"
+            },
+            "time": "2021-01-11T22:07:25+00:00"
+        },
+        {
+            "name": "collizo4sky/persist-admin-notices-dismissal",
+            "version": "1.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/w3guy/persist-admin-notices-dismissal.git",
+                "reference": "900739eb6b0ec0210465f5983a6d4e0e420289e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/w3guy/persist-admin-notices-dismissal/zipball/900739eb6b0ec0210465f5983a6d4e0e420289e4",
+                "reference": "900739eb6b0ec0210465f5983a6d4e0e420289e4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "persist-admin-notices-dismissal.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Collins Agbonghama",
+                    "email": "me@w3guy.com",
+                    "role": "developer"
+                }
+            ],
+            "description": "Simple library to persist dismissal of admin notices across pages in WordPress dashboard.",
+            "support": {
+                "issues": "https://github.com/w3guy/persist-admin-notices-dismissal/issues",
+                "source": "https://github.com/w3guy/persist-admin-notices-dismissal"
+            },
+            "time": "2020-12-31T17:12:37+00:00"
+        },
+        {
+            "name": "erusev/parsedown",
+            "version": "1.7.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erusev/parsedown.git",
+                "reference": "cb17b6477dfff935958ba01325f2e8a2bfa6dab3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/cb17b6477dfff935958ba01325f2e8a2bfa6dab3",
+                "reference": "cb17b6477dfff935958ba01325f2e8a2bfa6dab3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Parsedown": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emanuil Rusev",
+                    "email": "hello@erusev.com",
+                    "homepage": "http://erusev.com"
+                }
+            ],
+            "description": "Parser for Markdown.",
+            "homepage": "http://parsedown.org",
+            "keywords": [
+                "markdown",
+                "parser"
+            ],
+            "support": {
+                "issues": "https://github.com/erusev/parsedown/issues",
+                "source": "https://github.com/erusev/parsedown/tree/1.7.x"
+            },
+            "time": "2019-12-30T22:54:17+00:00"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "afragen/singleton": 20
+        "afragen/singleton": 20,
+        "afragen/github-updater": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

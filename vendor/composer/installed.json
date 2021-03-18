@@ -51,6 +51,6 @@
             "install-path": "../afragen/singleton"
         }
     ],
-    "dev": true,
+    "dev": false,
     "dev-package-names": []
 }
