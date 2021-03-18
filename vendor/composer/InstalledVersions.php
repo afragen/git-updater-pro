@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'cfff83df27628729219cf58da402124bd234305f',
+    'reference' => '331c4e75f25ed35b3294eae3eec705eb140e07f8',
     'name' => 'afragen/git-updater-pro',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'cfff83df27628729219cf58da402124bd234305f',
+      'reference' => '331c4e75f25ed35b3294eae3eec705eb140e07f8',
     ),
     'afragen/singleton' => 
     array (
