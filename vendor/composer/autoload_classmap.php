@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Fragen\\Singleton' => $vendorDir . '/afragen/singleton/Singleton.php',
 );
