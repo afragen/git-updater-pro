@@ -10,7 +10,7 @@
 
 namespace Fragen\Git_Updater\PRO;
 
-use Fragen\GitHub_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\GHU_Trait;
 
 /**
  * Class Remote_Management

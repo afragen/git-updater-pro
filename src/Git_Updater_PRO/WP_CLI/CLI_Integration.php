@@ -36,8 +36,8 @@ class CLI_Integration extends WP_CLI_Command {
 	 * Off to the races.
 	 */
 	public function run() {
-		add_filter( 'site_transient_update_plugins', [ Singleton::get_instance( 'Fragen\GitHub_Updater\Plugin', $this ), 'update_site_transient' ], 10, 1 );
-		add_filter( 'site_transient_update_themes', [ Singleton::get_instance( 'Fragen\GitHub_Updater\Theme', $this ), 'update_site_transient' ], 10, 1 );
+		add_filter( 'site_transient_update_plugins', [ Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this ), 'update_site_transient' ], 10, 1 );
+		add_filter( 'site_transient_update_themes', [ Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this ), 'update_site_transient' ], 10, 1 );
 	}
 
 	/**
@@ -208,8 +208,8 @@ class CLI_Integration extends WP_CLI_Command {
 	 */
 	public function branch_switch( $args = null ) {
 		list( $slug, $branch ) = $args;
-		$plugins               = Singleton::get_instance( 'Fragen\GitHub_Updater\Plugin', $this )->get_plugin_configs();
-		$themes                = Singleton::get_instance( 'Fragen\GitHub_Updater\Theme', $this )->get_theme_configs();
+		$plugins               = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
+		$themes                = Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this )->get_theme_configs();
 		$configs               = array_merge( $plugins, $themes );
 
 		$repo = isset( $configs[ $slug ] ) ? $configs[ $slug ] : false;
@@ -218,7 +218,7 @@ class CLI_Integration extends WP_CLI_Command {
 			exit;
 		}
 
-		$rest_api_key = Singleton::get_instance( 'Fragen\GitHub_Updater\Base', $this )->get_class_vars( 'Remote_Management', 'api_key' );
+		$rest_api_key = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_class_vars( 'Remote_Management', 'api_key' );
 		$api_url      = add_query_arg(
 			[
 				'key'       => $rest_api_key,
@@ -226,7 +226,7 @@ class CLI_Integration extends WP_CLI_Command {
 				'branch'    => $branch,
 				'override'  => true,
 			],
-			home_url( 'wp-json/' . Singleton::get_instance( 'Fragen\GitHub_Updater\Base', $this )->get_class_vars( 'REST\REST_API', 'namespace' ) . '/update/' )
+			home_url( 'wp-json/' . Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_class_vars( 'REST\REST_API', 'namespace' ) . '/update/' )
 		);
 		$response     = wp_remote_get( $api_url, [ 'timeout' => 10 ] );
 
@@ -292,7 +292,7 @@ class CLI_Integration extends WP_CLI_Command {
 		$branch_data['github_updater_branch'] = $cli_config['branch'];
 		$branch_data['repo']                  = $slug;
 
-		Singleton::get_instance( 'Fragen\GitHub_Updater\Branch', $this )->set_branch_on_install( $branch_data );
+		Singleton::get_instance( 'Fragen\Git_Updater\Branch', $this )->set_branch_on_install( $branch_data );
 	}
 }
 

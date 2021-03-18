@@ -21,12 +21,11 @@ if ( ! defined( 'WPINC' ) ) {
  * Class Init.
  */
 class Init {
-
-    /**
-     * Load hooks.
-     *
-     * @return void
-     */
+	/**
+	 * Load hooks.
+	 *
+	 * @return void
+	 */
 	public function load_hooks() {
 		add_filter(
 			'gu_pro_dl_package',
@@ -40,9 +39,12 @@ class Init {
 		add_action(
 			'plugins_loaded',
 			function () {
+				// Bail if Git Updater not active.
+				if ( ! class_exists( '\\Fragen\\Git_Updater\\Bootstrap' ) ) {
+					return false;
+				}
 				( new Bootstrap() )->run();
 			}
 		);
-
 	}
 }

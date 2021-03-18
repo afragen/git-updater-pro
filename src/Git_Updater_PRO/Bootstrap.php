@@ -11,7 +11,7 @@
 namespace Fragen\Git_Updater\PRO;
 
 use Fragen\Singleton;
-use Fragen\GitHub_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\GHU_Trait;
 use Fragen\Git_Updater\PRO\REST\REST_API;
 
 /*
@@ -41,12 +41,7 @@ class Bootstrap {
 	 * @return bool|void
 	 */
 	public function run() {
-		// Exit if GitHub Updater not running.
-		if ( ! class_exists( '\\Fragen\\GitHub_Updater\\Bootstrap' ) ) {
-			return false;
-		}
 
-		// new PRO();
 		$this->load_hooks();
 
 		if ( static::is_wp_cli() ) {

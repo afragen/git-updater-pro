@@ -11,8 +11,8 @@
 namespace Fragen\Git_Updater\PRO;
 
 use Fragen\Singleton;
-use Fragen\GitHub_Updater\Traits\GHU_Trait;
-use Fragen\GitHub_Updater\Traits\Basic_Auth_Loader;
+use Fragen\Git_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\Basic_Auth_Loader;
 use Fragen\Git_Updater\PRO\WP_CLI\CLI_Plugin_Installer_Skin;
 use Fragen\Git_Updater\PRO\WP_CLI\CLI_Theme_Installer_Skin;
 
@@ -63,9 +63,9 @@ class Install {
 	 * Constructor.
 	 */
 	public function __construct() {
-		self::$options        = $this->get_class_vars( 'Fragen\GitHub_Updater\Base', 'options' );
-		self::$installed_apis = $this->get_class_vars( 'Fragen\GitHub_Updater\Base', 'installed_apis' );
-		self::$git_servers    = $this->get_class_vars( 'Fragen\GitHub_Updater\Base', 'git_servers' );
+		self::$options        = $this->get_class_vars( 'Fragen\Git_Updater\Base', 'options' );
+		self::$installed_apis = $this->get_class_vars( 'Fragen\Git_Updater\Base', 'installed_apis' );
+		self::$git_servers    = $this->get_class_vars( 'Fragen\Git_Updater\Base', 'git_servers' );
 	}
 
 	/**
@@ -181,14 +181,14 @@ class Install {
 			 * Check for GitHub Self-Hosted.
 			 */
 			if ( 'github' === self::$install['github_updater_api'] ) {
-				self::$install = Singleton::get_instance( 'Fragen\GitHub_Updater\API\GitHub_API', $this, new \stdClass() )->remote_install( $headers, self::$install );
+				self::$install = Singleton::get_instance( 'Fragen\Git_Updater\API\GitHub_API', $this, new \stdClass() )->remote_install( $headers, self::$install );
 			}
 
 			/*
 			 * Install from Zipfile.
 			 */
 			if ( 'zipfile' === self::$install['github_updater_api'] ) {
-				self::$install = Singleton::get_instance( 'Fragen\GitHub_Updater\API\Zipfile_API', $this )->remote_install( $headers, self::$install );
+				self::$install = Singleton::get_instance( 'Fragen\Git_Updater\API\Zipfile_API', $this )->remote_install( $headers, self::$install );
 			}
 
 			/**
@@ -196,7 +196,7 @@ class Install {
 			 *
 			 * @since 10.0.0
 			 * @param array self::$install Array of installation data.
-			 * @param array $headers       Array of repo header data.
+			 * @param array $headers Array of repo header data.
 			 */
 			self::$install = apply_filters( 'gu_install_remote_install', self::$install, $headers );
 
@@ -401,7 +401,7 @@ class Install {
 		$servers_not_running = array_diff( array_flip( self::$git_servers ), $running_servers );
 		if ( ! empty( $servers_not_running ) ) {
 			foreach ( array_keys( $servers_not_running ) as $server ) {
-				$class = 'Fragen\\GitHub_Updater\\API\\' . $server . '_API';
+				$class = 'Fragen\\Git_Updater\\API\\' . $server . '_API';
 				Singleton::get_instance( $class, $this )->add_install_settings_fields( $type );
 			}
 		}

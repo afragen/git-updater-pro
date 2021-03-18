@@ -21,7 +21,7 @@ WP_CLI::add_command( 'git-updater-pro', get_class( $cli ) );
 /**
  * Manage Git Updater PRO commands.
  *
- * Class GitHub_Updater_CLI
+ * Class Git_Updater_CLI
  */
 class CLI extends WP_CLI_Command {
 	/**
@@ -64,7 +64,7 @@ class CLI extends WP_CLI_Command {
 	public function reset_api_key() {
 		delete_site_option( 'github_updater_api_key' );
 		Singleton::get_instance( 'Fragen\Git_Updater\PRO\Remote_Management', $this )->ensure_api_key_is_set();
-		$namespace = Singleton::get_instance( 'Fragen\GitHub_Updater\Base', $this )->get_class_vars( 'Fragen\Git_Updater\PRO\REST\REST_API', 'namespace' );
+		$namespace = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_class_vars( 'Fragen\Git_Updater\PRO\REST\REST_API', 'namespace' );
 		$api_key   = get_site_option( 'github_updater_api_key' );
 		$api_url   = add_query_arg(
 			[ 'key' => $api_key ],

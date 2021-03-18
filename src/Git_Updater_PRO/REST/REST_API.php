@@ -10,7 +10,7 @@
 
 namespace Fragen\Git_Updater\PRO\REST;
 
-use Fragen\GitHub_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\GHU_Trait;
 use Fragen\Singleton;
 
 /**
@@ -141,8 +141,8 @@ class REST_API {
 		if ( $this->get_class_vars( 'Remote_Management', 'api_key' ) !== $request->get_param( 'key' ) ) {
 			return [ 'error' => 'Bad API key. No repo data for you.' ];
 		}
-		$ghu_plugins = Singleton::get_instance( 'Fragen\GitHub_Updater\Plugin', $this )->get_plugin_configs();
-		$ghu_themes  = Singleton::get_instance( 'Fragen\GitHub_Updater\Theme', $this )->get_theme_configs();
+		$ghu_plugins = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
+		$ghu_themes  = Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this )->get_theme_configs();
 		$ghu_tokens  = array_merge( $ghu_plugins, $ghu_themes );
 
 		$site    = $request->get_header( 'host' );

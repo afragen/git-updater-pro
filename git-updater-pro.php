@@ -18,8 +18,9 @@
  * Domain Path:       /languages
  * Text Domain:       git-updater-pro
  * Network:           true
- * GitHub Plugin URI: https://github.com/afragen/git-updater-pro
+ * xGitHub Plugin URI: https://github.com/afragen/git-updater-pro
  * GitHub Languages:  https://github.com/afragen/git-updater-pro-translations
+ * Primary Branch:    main
  * Requires at least: 5.2
  * Requires PHP:      7.0
  */

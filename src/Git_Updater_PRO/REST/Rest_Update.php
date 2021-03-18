@@ -11,7 +11,7 @@
 namespace Fragen\Git_Updater\PRO\REST;
 
 use Fragen\Singleton;
-use Fragen\GitHub_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\GHU_Trait;
 
 /*
  * Exit if called directly.
@@ -77,7 +77,7 @@ class Rest_Update {
 		$plugin           = null;
 		$is_plugin_active = false;
 
-		foreach ( (array) Singleton::get_instance( 'Fragen\GitHub_Updater\Plugin', $this )->get_plugin_configs() as $config_entry ) {
+		foreach ( (array) Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs() as $config_entry ) {
 			if ( $config_entry->slug === $plugin_slug ) {
 				$plugin = $config_entry;
 				break;
@@ -92,8 +92,8 @@ class Rest_Update {
 			$is_plugin_active = true;
 		}
 
-		Singleton::get_instance( 'Fragen\GitHub_Updater\Base', $this )->get_remote_repo_meta( $plugin );
-		$repo_api = Singleton::get_instance( 'Fragen\GitHub_Updater\API\API', $this )->get_repo_api( $plugin->git, $plugin );
+		Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_remote_repo_meta( $plugin );
+		$repo_api = Singleton::get_instance( 'Fragen\Git_Updater\API\API', $this )->get_repo_api( $plugin->git, $plugin );
 
 		$update = [
 			'slug'        => $plugin->slug,
@@ -121,7 +121,7 @@ class Rest_Update {
 		);
 
 		// Add authentication header to download package.
-		add_filter( 'http_request_args', [ Singleton::get_instance( 'Fragen\GitHub_Updater\API\API', $this ), 'download_package' ], 15, 2 );
+		add_filter( 'http_request_args', [ Singleton::get_instance( 'Fragen\Git_Updater\API\API', $this ), 'download_package' ], 15, 2 );
 
 		$upgrader = new \Plugin_Upgrader( $this->upgrader_skin );
 		$upgrader->upgrade( $plugin->file );
@@ -145,7 +145,7 @@ class Rest_Update {
 	public function update_theme( $theme_slug, $tag = 'master' ) {
 		$theme = null;
 
-		foreach ( (array) Singleton::get_instance( 'Fragen\GitHub_Updater\Theme', $this )->get_theme_configs() as $config_entry ) {
+		foreach ( (array) Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this )->get_theme_configs() as $config_entry ) {
 			if ( $config_entry->slug === $theme_slug ) {
 				$theme = $config_entry;
 				break;
@@ -156,8 +156,8 @@ class Rest_Update {
 			throw new \UnexpectedValueException( 'Theme not found or not updatable with Git Updater: ' . $theme_slug );
 		}
 
-		Singleton::get_instance( 'Fragen\GitHub_Updater\Base', $this )->get_remote_repo_meta( $theme );
-		$repo_api = Singleton::get_instance( 'Fragen\GitHub_Updater\API\API', $this )->get_repo_api( $theme->git, $theme );
+		Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_remote_repo_meta( $theme );
+		$repo_api = Singleton::get_instance( 'Fragen\Git_Updater\API\API', $this )->get_repo_api( $theme->git, $theme );
 
 		$update = [
 			'theme'       => $theme->slug,
@@ -184,7 +184,7 @@ class Rest_Update {
 		);
 
 		// Add authentication header to download package.
-		add_filter( 'http_request_args', [ Singleton::get_instance( 'Fragen\GitHub_Updater\API\API', $this ), 'download_package' ], 15, 2 );
+		add_filter( 'http_request_args', [ Singleton::get_instance( 'Fragen\Git_Updater\API\API', $this ), 'download_package' ], 15, 2 );
 
 		$upgrader = new \Theme_Upgrader( $this->upgrader_skin );
 		$upgrader->upgrade( $theme->slug );
@@ -344,15 +344,15 @@ class Rest_Update {
 	private function get_local_branch( $plugin, $theme ) {
 		$repo = false;
 		if ( $plugin ) {
-			$repos = Singleton::get_instance( 'Fragen\GitHub_Updater\Plugin', $this )->get_plugin_configs();
+			$repos = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
 			$repo  = isset( $repos[ $plugin ] ) ? $repos[ $plugin ] : false;
 		}
 		if ( $theme ) {
-			$repos = Singleton::get_instance( 'Fragen\GitHub_Updater\Theme', $this )->get_theme_configs();
+			$repos = Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this )->get_theme_configs();
 			$repo  = isset( $repos[ $theme ] ) ? $repos[ $theme ] : false;
 		}
 		$current_branch = $repo ?
-			Singleton::get_instance( 'Fragen\GitHub_Updater\Branch', $this )->get_current_branch( $repo ) :
+			Singleton::get_instance( 'Fragen\Git_Updater\Branch', $this )->get_current_branch( $repo ) :
 			'master';
 
 		return $current_branch;
