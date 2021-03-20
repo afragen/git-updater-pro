@@ -107,13 +107,13 @@ class Install {
 			$install_tabs['git_updater_install_theme'] = esc_html__( 'Install Theme', 'git-updater-pro' );
 		}
 		add_filter(
-			'github_updater_add_settings_tabs',
+			'gu_add_settings_tabs',
 			function ( $tabs ) use ( $install_tabs ) {
 				return array_merge( $tabs, $install_tabs );
 			}
 		);
 		add_action(
-			'github_updater_add_admin_page',
+			'gu_add_admin_page',
 			function ( $tab ) {
 				$this->add_admin_page( $tab );
 			}
@@ -123,7 +123,7 @@ class Install {
 	/**
 	 * Add Settings page data via action hook.
 	 *
-	 * @uses 'github_updater_add_admin_page' action hook
+	 * @uses 'gu_add_admin_page' action hook
 	 *
 	 * @param string $tab Name of tab.
 	 */
@@ -167,7 +167,7 @@ class Install {
 			}
 
 			// Transform URI to owner/repo.
-			$headers                      = $this->parse_header_uri( sanitize_text_field( wp_unslash( $_POST['git_updater_repo'] ) ) );
+			$headers                   = $this->parse_header_uri( sanitize_text_field( wp_unslash( $_POST['git_updater_repo'] ) ) );
 			$_POST['git_updater_repo'] = $headers['owner_repo'];
 
 			self::$install = $this->sanitize( $_POST );
@@ -249,9 +249,9 @@ class Install {
 
 		$api = isset( $config['git'] ) ? $config['git'] : $api;
 
-		$_POST['git_updater_repo']   = $config['uri'];
-		$_POST['git_updater_branch'] = $config['branch'];
-		$_POST['git_updater_api']    = $api;
+		$_POST['git_updater_repo']      = $config['uri'];
+		$_POST['git_updater_branch']    = $config['branch'];
+		$_POST['git_updater_api']       = $api;
 		$_POST['option_page']           = 'git_updater_install';
 		$_POST[ "{$api}_access_token" ] = $config['private'] ?: null;
 
@@ -394,7 +394,7 @@ class Install {
 		 *
 		 * @param string $type 'plugin'|'theme'.
 		 */
-		do_action( 'github_updater_add_install_settings_fields', $type );
+		do_action( 'gu_add_install_settings_fields', $type );
 
 		// Load install settings fields for existing APIs that are not loaded.
 		$running_servers     = $this->get_running_git_servers();
