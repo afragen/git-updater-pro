@@ -37,7 +37,7 @@ class Remote_Management {
 	 * Load site options.
 	 */
 	private function load_options() {
-		self::$api_key = get_site_option( 'github_updater_api_key' );
+		self::$api_key = get_site_option( 'git_updater_api_key' );
 	}
 
 	/**
@@ -45,7 +45,7 @@ class Remote_Management {
 	 */
 	public function ensure_api_key_is_set() {
 		if ( ! self::$api_key ) {
-			update_site_option( 'github_updater_api_key', md5( uniqid( \wp_rand(), true ) ) );
+			update_site_option( 'git_updater_api_key', md5( uniqid( \wp_rand(), true ) ) );
 		}
 	}
 
@@ -73,18 +73,18 @@ class Remote_Management {
 	 */
 	public function save_settings( $post_data ) {
 		if ( isset( $post_data['option_page'] )
-			&& 'github_updater_remote_management' === $post_data['option_page']
+			&& 'git_updater_remote_management' === $post_data['option_page']
 		) {
-			$options = isset( $post_data['github_updater_remote_management'] )
-				? $post_data['github_updater_remote_management']
+			$options = isset( $post_data['git_updater_remote_management'] )
+				? $post_data['git_updater_remote_management']
 				: [];
 
-			update_site_option( 'github_updater_remote_management', (array) $this->sanitize( $options ) );
+			update_site_option( 'git_updater_remote_management', (array) $this->sanitize( $options ) );
 
 			add_filter(
 				'gu_save_redirect',
 				function ( $option_page ) {
-					return array_merge( $option_page, [ 'github_updater_remote_management' ] );
+					return array_merge( $option_page, [ 'git_updater_remote_management' ] );
 				}
 			);
 		}
@@ -94,7 +94,7 @@ class Remote_Management {
 	 * Adds Remote Management tab to Settings page.
 	 */
 	public function add_settings_tabs() {
-		$install_tabs = [ 'github_updater_remote_management' => esc_html__( 'Remote Management', 'git-updater-pro' ) ];
+		$install_tabs = [ 'git_updater_remote_management' => esc_html__( 'Remote Management', 'git-updater-pro' ) ];
 		add_filter(
 			'gu_add_settings_tabs',
 			function ( $tabs ) use ( $install_tabs ) {
@@ -120,12 +120,12 @@ class Remote_Management {
 	 * @param string $action Form action.
 	 */
 	public function add_admin_page( $tab, $action ) {
-		if ( 'github_updater_remote_management' === $tab ) {
+		if ( 'git_updater_remote_management' === $tab ) {
 			$action = add_query_arg( 'tab', $tab, $action ); ?>
 			<form class="settings" method="post" action="<?php esc_attr_e( $action ); ?>">
-				<?php do_settings_sections( 'github_updater_remote_settings' ); ?>
+				<?php do_settings_sections( 'git_updater_remote_settings' ); ?>
 			</form>
-			<?php $reset_api_action = add_query_arg( [ 'github_updater_reset_api_key' => true ], $action ); ?>
+			<?php $reset_api_action = add_query_arg( [ 'git_updater_reset_api_key' => true ], $action ); ?>
 			<form class="settings no-sub-tabs" method="post" action="<?php esc_attr_e( $reset_api_action ); ?>">
 				<?php submit_button( esc_html__( 'Reset REST API key', 'git-updater-pro' ) ); ?>
 			</form>
@@ -138,8 +138,8 @@ class Remote_Management {
 	 */
 	public function remote_management_page_init() {
 		register_setting(
-			'github_updater_remote_management',
-			'github_updater_remote_settings',
+			'git_updater_remote_management',
+			'git_updater_remote_settings',
 			[ $this, 'sanitize' ]
 		);
 
@@ -147,7 +147,7 @@ class Remote_Management {
 			'remote_management',
 			esc_html__( 'Remote Management', 'git-updater-pro' ),
 			[ $this, 'print_section_remote_management' ],
-			'github_updater_remote_settings'
+			'git_updater_remote_settings'
 		);
 	}
 
@@ -208,14 +208,14 @@ class Remote_Management {
 	 */
 	public function reset_api_key() {
 		// phpcs:disable WordPress.Security.NonceVerification.Recommended
-		if ( isset( $_REQUEST['tab'], $_REQUEST['github_updater_reset_api_key'] )
-			&& 'github_updater_remote_management' === sanitize_file_name( wp_unslash( $_REQUEST['tab'] ) )
+		if ( isset( $_REQUEST['tab'], $_REQUEST['git_updater_reset_api_key'] )
+			&& 'git_updater_remote_management' === sanitize_file_name( wp_unslash( $_REQUEST['tab'] ) )
 		) {
 			$_POST = $_REQUEST;
 			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			$_POST['_wp_http_referer'] = isset( $_SERVER['HTTP_REFERER'] ) ? esc_url( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) : null;
 			// phpcs:enable
-			delete_site_option( 'github_updater_api_key' );
+			delete_site_option( 'git_updater_api_key' );
 
 			return true;
 		}
