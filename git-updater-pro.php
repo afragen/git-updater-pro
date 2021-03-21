@@ -11,7 +11,7 @@
 /**
  * Plugin Name:       Git Updater PRO
  * Plugin URI:        https://github.com/afragen/git-updater-pro
- * Description:       A GitHub Updater add-on plugin that unlocks PRO features of updating and installing plugins and themes.
+ * Description:       A Git Updater add-on plugin that unlocks PRO features of updating and installing plugins and themes.
  * Version:           0.1.0
  * Author:            Andy Fragen
  * License:           MIT

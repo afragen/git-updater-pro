@@ -1,6 +1,6 @@
 {
   "name": "afragen/git-updater-pro",
-  "description": "A GitHub Updater add-on plugin that unlocks PRO features of updating and installing plugins and themes.",
+  "description": "A Git Updater add-on plugin that unlocks PRO features of updating and installing plugins and themes.",
   "type": "wordpress-plugin",
   "keywords": [
     "wordpress",
