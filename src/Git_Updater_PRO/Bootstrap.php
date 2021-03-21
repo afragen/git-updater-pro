@@ -62,8 +62,10 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function load_hooks() {
+		add_action( 'rest_api_init', [ new REST_API(), 'register_endpoints' ] );
+
+		// Deprecated AJAX request.
 		add_action( 'wp_ajax_github-updater-update', [ Singleton::get_instance( 'REST\Rest_Update', $this ), 'process_request' ] );
 		add_action( 'wp_ajax_nopriv_github-updater-update', [ Singleton::get_instance( 'REST\Rest_Update', $this ), 'process_request' ] );
-		add_action( 'rest_api_init', [ new REST_API(), 'register_endpoints' ] );
 	}
 }
