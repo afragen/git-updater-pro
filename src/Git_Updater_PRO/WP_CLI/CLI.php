@@ -62,10 +62,10 @@ class CLI extends WP_CLI_Command {
 	 * @subcommand reset-api-key
 	 */
 	public function reset_api_key() {
-		delete_site_option( 'github_updater_api_key' );
+		delete_site_option( 'git_updater_api_key' );
 		Singleton::get_instance( 'Fragen\Git_Updater\PRO\Remote_Management', $this )->ensure_api_key_is_set();
 		$namespace = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_class_vars( 'Fragen\Git_Updater\PRO\REST\REST_API', 'namespace' );
-		$api_key   = get_site_option( 'github_updater_api_key' );
+		$api_key   = get_site_option( 'git_updater_api_key' );
 		$api_url   = add_query_arg(
 			[ 'key' => $api_key ],
 			\home_url( "wp-json/$namespace/update/" )

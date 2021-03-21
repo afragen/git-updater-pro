@@ -223,7 +223,7 @@ class Rest_Update {
 		$start = microtime( true );
 		try {
 			if ( ! $key
-				|| get_site_option( 'github_updater_api_key' ) !== $key
+				|| get_site_option( 'git_updater_api_key' ) !== $key
 			) {
 				throw new \UnexpectedValueException( 'Bad API key.' );
 			}
@@ -232,9 +232,11 @@ class Rest_Update {
 			 * Allow access into the REST Update process.
 			 *
 			 * @since  7.6.0
+			 * @since  10.0.0
 			 * @access public
 			 */
-			do_action( 'github_updater_pre_rest_process_request' );
+			do_action_deprecated( 'github_updater_pre_rest_process_request', [], '10.0.0', 'gu_pre_rest_process_request' );
+			do_action( 'gu_pre_rest_process_request' );
 
 			$this->get_webhook_source();
 			$tag            = $committish ? $committish : $tag;
@@ -401,11 +403,13 @@ class Rest_Update {
 		 * Action hook after processing REST process.
 		 *
 		 * @since 8.6.0
+		 * @since 10.0.0
 		 *
 		 * @param array $response
 		 * @param int   $code     HTTP response.
 		 */
-		do_action( 'github_updater_post_rest_process_request', $response, $code );
+		do_action_deprecated( 'github_updater_post_rest_process_request', [ $response, $code ], '10.0.0', 'gu_post_rest_process_request' );
+		do_action( 'gu_post_rest_process_request', $response, $code );
 
 		unset( $response['success'] );
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
