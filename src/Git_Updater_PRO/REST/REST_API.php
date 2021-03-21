@@ -145,6 +145,9 @@ class REST_API {
 		$ghu_themes  = Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this )->get_theme_configs();
 		$ghu_tokens  = array_merge( $ghu_plugins, $ghu_themes );
 
+		$plugin_updates = get_site_option( 'git_updater_plugin_updates' );
+		$theme_updates  = get_site_option( 'git_updater_theme_updates' );
+
 		$site    = $request->get_header( 'host' );
 		$api_url = add_query_arg(
 			[
@@ -153,13 +156,20 @@ class REST_API {
 			home_url( 'wp-json/' . self::$namespace . '/update/' )
 		);
 		foreach ( $ghu_tokens as $token ) {
+			$update_package = false;
+			if ( 'plugin' === $token->type && array_key_exists( $token->file, (array) $plugin_updates ) ) {
+				$update_package = $plugin_updates[ $token->file ];
+			}
+			if ( 'theme' === $token->type && array_key_exists( $token->slug, (array) $theme_updates ) ) {
+				$update_package = $theme_updates[ $token->slug ];
+			}
 			$slugs[] = [
 				'slug'           => $token->slug,
 				'type'           => $token->type,
 				'primary_branch' => $token->primary_branch,
 				'branch'         => $token->branch,
 				'version'        => $token->local_version,
-				'tag'            => isset( $token->newest_tag ) && '0.0.0' !== $token->newest_tag ? $token->newest_tag : false,
+				'update_package' => $update_package,
 			];
 		}
 		$json = [
