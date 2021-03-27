@@ -16,6 +16,7 @@ use Fragen\Git_Updater\Traits\GHU_Trait;
  * Class Remote_Management
  */
 class Remote_Management {
+
 	use GHU_Trait;
 
 	/**
@@ -29,15 +30,8 @@ class Remote_Management {
 	 * Remote_Management constructor.
 	 */
 	public function __construct() {
-		$this->load_options();
-		$this->ensure_api_key_is_set();
-	}
-
-	/**
-	 * Load site options.
-	 */
-	private function load_options() {
 		self::$api_key = get_site_option( 'git_updater_api_key' );
+		$this->ensure_api_key_is_set();
 	}
 
 	/**
@@ -54,40 +48,8 @@ class Remote_Management {
 	 */
 	public function load_hooks() {
 		add_action( 'admin_init', [ $this, 'remote_management_page_init' ] );
-		add_action(
-			'gu_update_settings',
-			function ( $post_data ) {
-				$this->save_settings( $post_data );
-			}
-		);
+
 		$this->add_settings_tabs();
-	}
-
-	/**
-	 * Save Remote Management settings.
-	 *
-	 * @uses 'gu_settings' action hook
-	 * @uses 'gu_save_redirect' filter hook
-	 *
-	 * @param array $post_data $_POST data.
-	 */
-	public function save_settings( $post_data ) {
-		if ( isset( $post_data['option_page'] )
-			&& 'git_updater_remote_management' === $post_data['option_page']
-		) {
-			$options = isset( $post_data['git_updater_remote_management'] )
-				? $post_data['git_updater_remote_management']
-				: [];
-
-			update_site_option( 'git_updater_remote_management', (array) $this->sanitize( $options ) );
-
-			add_filter(
-				'gu_save_redirect',
-				function ( $option_page ) {
-					return array_merge( $option_page, [ 'git_updater_remote_management' ] );
-				}
-			);
-		}
 	}
 
 	/**
