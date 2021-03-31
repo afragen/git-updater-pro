@@ -23,7 +23,7 @@ A [GitHub Updater](https://github.com/afragen/github-updater) add-on plugin that
 
 ## Description
 
-This is a Git Updater add-on plugin. It allows for updates, remote installation of plugins or themes, etc.
+This is a Git Updater add-on plugin. It allows for updates, branch switching, remote installation of plugins or themes, etc. It also unlocks the  REST API and WP-CLI features.
 
 ### API plugins
 
