@@ -184,13 +184,6 @@ class Install {
 				self::$install = Singleton::get_instance( 'Fragen\Git_Updater\API\GitHub_API', $this, new \stdClass() )->remote_install( $headers, self::$install );
 			}
 
-			/*
-			 * Install from Zipfile.
-			 */
-			if ( 'zipfile' === self::$install['git_updater_api'] ) {
-				self::$install = Singleton::get_instance( 'Fragen\Git_Updater\API\Zipfile_API', $this )->remote_install( $headers, self::$install );
-			}
-
 			/**
 			 * Filter to create git host specific endpoint.
 			 *
