@@ -10,6 +10,8 @@
 
 namespace Fragen\Git_Updater\PRO;
 
+use Fragen\Git_Updater\API\Zipfile_API;
+
 /*
  * Exit if called directly.
  */
@@ -27,6 +29,8 @@ class Init {
 	 * @return void
 	 */
 	public function load_hooks() {
+		( new Zipfile_API() )->load_hooks();
+
 		add_filter(
 			'gu_pro_dl_package',
 			function ( $response, $repo ) {
