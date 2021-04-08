@@ -12,18 +12,18 @@
 * Requires PHP: 7.0
 * Tested up to: trunk
 * Stable tag: [master](https://github.com/afragen/git-updater-pro/releases/latest)
-* Donate link: <https://thefragens.com/github-updater-donate>
+* Donate link: <https://thefragens.com/git-updater-donate>
 * License: MIT
 
-A [GitHub Updater](https://github.com/afragen/github-updater) add-on plugin that unlocks PRO features of updating and installing plugins and themes.
+A [Git Updater](https://github.com/afragen/git-updater) add-on plugin that unlocks PRO features of branch switching, remote installing plugins and themes, Remote Management, REST API, Webhooks, WP-CLI, and more.
 
-[Comprehensive information regarding GitHub Updater is available on the wiki.](https://github.com/afragen/github-updater/wiki)
+[Comprehensive information regarding Git Updater is available on the wiki.](https://github.com/afragen/git-updater/wiki)
 
 [Install the latest version here.](https://github.com/afragen/git-updater-pro/releases/latest)
 
 ## Description
 
-This is a Git Updater add-on plugin. It allows for updates, branch switching, remote installation of plugins or themes, etc. It also unlocks the  REST API and WP-CLI features.
+This is a Git Updater add-on plugin. It allows for branch switching, remote installation of plugins or themes, etc. It also unlocks the REST API and WP-CLI features.
 
 ### API plugins
 
@@ -40,4 +40,4 @@ You can [sponsor me on GitHub](https://github.com/sponsors/afragen) to help with
 
 ## Slack
 
-We now have a [Slack team for GitHub Updater](https://github-updater.slack.com). Please [click here for an invite](https://github-updater.herokuapp.com). You will be automatically added to the _#general_ and _#support_ channels. Please take a look at other channels too.
+We now have a [Slack team for Git Updater](https://git-updater.slack.com). Please [click here for an invite](https://github-updater.herokuapp.com). You will be automatically added to the _#general_ and _#support_ channels. Please take a look at other channels too.
