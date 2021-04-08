@@ -215,7 +215,7 @@ class Branch_Switcher {
 	}
 
 	/**
-	 * Create branch switcher row for multisite installation.
+	 * Create branch switcher row for theme multisite installation.
 	 *
 	 * @param string $theme_key Theme slug.
 	 * @param array  $theme     Array of theme data.
@@ -265,7 +265,7 @@ class Branch_Switcher {
 	}
 
 	/**
-	 * Display rollback/branch switcher for single site installation.
+	 * Display rollback/branch switcher for theme single site installation.
 	 *
 	 * @param \stdClass $theme Theme object.
 	 *
@@ -286,7 +286,7 @@ class Branch_Switcher {
 		if ( '1' === self::$options['branch_switch'] ) {
 			printf(
 				/* translators: 1: branch name, 2: jQuery dropdown, 3: closing tag */
-				'<p>' . esc_html__( 'Current branch is `%1$s`, try %2$sanother version%3$s', 'git-updater' ),
+				'<p>' . esc_html__( 'Current branch is `%1$s`, try %2$sanother version%3$s', 'git-updater-pro' ),
 				esc_attr( $theme->branch ),
 				'<a href="#" onclick="jQuery(\'#gu_versions\').toggle();return false;">',
 				'</a>.</p>'
@@ -294,7 +294,7 @@ class Branch_Switcher {
 			?>
 			<div id="gu_versions" style="display:none; width: 100%;">
 				<label><select style="width: 60%;" onchange="if(jQuery(this).val() != '') { jQuery(this).parent().next().show(); jQuery(this).parent().next().attr('href','<?php echo esc_url( $rollback_url ); ?>'+jQuery(this).val()); } else jQuery(this).parent().next().hide();">
-				<option value=""><?php esc_html_e( 'Choose a Version', 'git-updater' ); ?>&#8230;</option>
+				<option value=""><?php esc_html_e( 'Choose a Version', 'git-updater-pro' ); ?>&#8230;</option>
 			<?php
 
 			// Disable branch switching to primary branch for release assets.
@@ -337,11 +337,11 @@ class Branch_Switcher {
 				}
 			}
 			if ( empty( $theme->rollback ) ) {
-				echo '<option>' . esc_html__( 'No previous tags to rollback to.', 'git-updater' ) . '</option></select></label>';
+				echo '<option>' . esc_html__( 'No previous tags to rollback to.', 'git-updater-pro' ) . '</option></select></label>';
 			}
 			?>
 					</select></label>
-				<a style="display: none;" class="button-primary" href="?"><?php esc_html_e( 'Install', 'git-updater' ); ?></a>
+				<a style="display: none;" class="button-primary" href="?"><?php esc_html_e( 'Install', 'git-updater-pro' ); ?></a>
 			</div>
 			<?php
 		}

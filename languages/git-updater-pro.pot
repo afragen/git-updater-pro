@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-04-08T00:40:20+00:00\n"
+"POT-Creation-Date: 2021-04-08T00:58:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: git-updater-pro\n"
@@ -39,8 +39,22 @@ msgid "Enter plugin or theme slug."
 msgstr ""
 
 #. translators: 1: branch name, 2: jQuery dropdown, 3: closing tag
+#: src/Git_Updater_PRO/Branch_Switcher.php:289
 #: src/Git_Updater_PRO/Branch_Switcher.php:391
 msgid "Current branch is `%1$s`, try %2$sanother version%3$s"
+msgstr ""
+
+#: src/Git_Updater_PRO/Branch_Switcher.php:297
+msgid "Choose a Version"
+msgstr ""
+
+#: src/Git_Updater_PRO/Branch_Switcher.php:340
+#: src/Git_Updater_PRO/Branch_Switcher.php:498
+msgid "No previous tags to rollback to."
+msgstr ""
+
+#: src/Git_Updater_PRO/Branch_Switcher.php:344
+msgid "Install"
 msgstr ""
 
 #: src/Git_Updater_PRO/Branch_Switcher.php:430
@@ -49,10 +63,6 @@ msgstr ""
 
 #: src/Git_Updater_PRO/Branch_Switcher.php:490
 msgid "Switch to release "
-msgstr ""
-
-#: src/Git_Updater_PRO/Branch_Switcher.php:498
-msgid "No previous tags to rollback to."
 msgstr ""
 
 #: src/Git_Updater_PRO/Install.php:104
