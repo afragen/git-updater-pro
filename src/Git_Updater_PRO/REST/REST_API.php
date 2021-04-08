@@ -50,6 +50,17 @@ class REST_API {
 		);
 
 		register_rest_route(
+			'git-updater',
+			'namespace',
+			[
+				'show_in_index'       => true,
+				'methods'             => \WP_REST_Server::READABLE,
+				'callback'            => [ $this, 'get_namespace' ],
+				'permission_callback' => '__return_true',
+			]
+		);
+
+		register_rest_route(
 			self::$namespace,
 			'repos',
 			[
@@ -169,6 +180,15 @@ class REST_API {
 	 */
 	public function test() {
 		return 'Connected to Git Updater PRO!';
+	}
+
+	/**
+	 * Return current REST namespace.
+	 *
+	 * @return array
+	 */
+	public function get_namespace() {
+		return [ 'namespace' => self::$namespace ];
 	}
 
 	/**
