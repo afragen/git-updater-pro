@@ -11,7 +11,7 @@
 namespace Fragen\Git_Updater\PRO\REST;
 
 use Fragen\Singleton;
-use Fragen\Git_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\GU_Trait;
 
 /*
  * Exit if called directly.
@@ -30,7 +30,7 @@ require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
  * set_defaults function.
  */
 class Rest_Update {
-	use GHU_Trait;
+	use GU_Trait;
 
 	/**
 	 * Holds REST Upgrader Skin.
@@ -293,7 +293,7 @@ class Rest_Update {
 			update_site_option( $cache_key, $cache );
 
 			$options[ 'current_branch_' . $slug ] = $current_branch;
-			update_site_option( 'github_updater', $options );
+			update_site_option( 'git_updater', $options );
 		}
 
 		$response = [

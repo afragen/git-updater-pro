@@ -11,7 +11,7 @@
 namespace Fragen\Git_Updater\PRO;
 
 use Fragen\Singleton;
-use Fragen\Git_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\GU_Trait;
 use Fragen\Git_Updater\Traits\Basic_Auth_Loader;
 use Fragen\Git_Updater\PRO\WP_CLI\CLI_Plugin_Installer_Skin;
 use Fragen\Git_Updater\PRO\WP_CLI\CLI_Theme_Installer_Skin;
@@ -29,7 +29,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Install <author>/<repo> directly from Git Updater.
  */
 class Install {
-	use GHU_Trait, Basic_Auth_Loader;
+	use GU_Trait, Basic_Auth_Loader;
 
 	/**
 	 * Class options.
@@ -205,7 +205,7 @@ class Install {
 
 			// Install the repo from the $source urldecode() and save branch setting.
 			if ( $upgrader && $upgrader->install( $url ) ) {
-				Singleton::get_instance( 'Branch', $this )->set_branch_on_install( self::$install );
+				Singleton::get_instance( 'Fragen\Git_Updater\PRO\Branch_Switcher', $this )->set_branch_on_install( self::$install );
 			} else {
 				return false;
 			}
@@ -222,7 +222,7 @@ class Install {
 	 */
 	private function save_options_on_install( $install_options ) {
 		self::$options = array_merge( self::$options, $install_options );
-		update_site_option( 'github_updater', self::$options );
+		update_site_option( 'git_updater', self::$options );
 	}
 
 	/**

@@ -11,7 +11,7 @@
 namespace Fragen\Git_Updater\PRO;
 
 use Fragen\Singleton;
-use Fragen\Git_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\GU_Trait;
 use Fragen\Git_Updater\PRO\REST\REST_API;
 
 /*
@@ -33,7 +33,7 @@ add_action(
  * Class Bootstrap
  */
 class Bootstrap {
-	use GHU_Trait;
+	use GU_Trait;
 
 	/**
 	 * Run the bootstrap.
@@ -41,7 +41,6 @@ class Bootstrap {
 	 * @return bool|void
 	 */
 	public function run() {
-
 		$this->load_hooks();
 
 		if ( static::is_wp_cli() ) {
@@ -65,7 +64,7 @@ class Bootstrap {
 		add_action( 'rest_api_init', [ new REST_API(), 'register_endpoints' ] );
 
 		// Deprecated AJAX request.
-		add_action( 'wp_ajax_github-updater-update', [ Singleton::get_instance( 'REST\Rest_Update', $this ), 'process_request' ] );
-		add_action( 'wp_ajax_nopriv_github-updater-update', [ Singleton::get_instance( 'REST\Rest_Update', $this ), 'process_request' ] );
+		add_action( 'wp_ajax_git-updater-update', [ Singleton::get_instance( 'REST\Rest_Update', $this ), 'process_request' ] );
+		add_action( 'wp_ajax_nopriv_git-updater-update', [ Singleton::get_instance( 'REST\Rest_Update', $this ), 'process_request' ] );
 	}
 }

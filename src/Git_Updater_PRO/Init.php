@@ -29,16 +29,9 @@ class Init {
 	 * @return void
 	 */
 	public function load_hooks() {
-		( new Zipfile_API() )->load_hooks();
+		define( 'GIT_UPDATER_PRO', true );
 
-		add_filter(
-			'gu_pro_dl_package',
-			function ( $response, $repo ) {
-				return array_merge( $response, [ 'package' => $repo->download_link ] );
-			},
-			10,
-			2
-		);
+		( new Zipfile_API() )->load_hooks();
 
 		add_action(
 			'plugins_loaded',

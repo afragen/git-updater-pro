@@ -10,13 +10,13 @@
 
 namespace Fragen\Git_Updater\API;
 
-use Fragen\Git_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\GU_Trait;
 
 /**
  * Class Language_Pack_API
  */
 class Language_Pack_API extends API {
-	use GHU_Trait;
+	use GU_Trait;
 
 	/**
 	 * Constructor.

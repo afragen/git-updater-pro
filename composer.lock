@@ -60,13 +60,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/afragen/github-updater.git",
-                "reference": "096302c5e1a6f0fe0a622265cd3c6c1fbfb8702a"
+                "url": "https://github.com/afragen/git-updater.git",
+                "reference": "67a2aa98366512df91d6280a8dd33ac85e4229f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/github-updater/zipball/096302c5e1a6f0fe0a622265cd3c6c1fbfb8702a",
-                "reference": "096302c5e1a6f0fe0a622265cd3c6c1fbfb8702a",
+                "url": "https://api.github.com/repos/afragen/git-updater/zipball/67a2aa98366512df91d6280a8dd33ac85e4229f6",
+                "reference": "67a2aa98366512df91d6280a8dd33ac85e4229f6",
                 "shasum": ""
             },
             "require": {
@@ -111,7 +111,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-02-18T17:38:04+00:00"
+            "time": "2021-04-06T14:44:14+00:00"
         },
         {
             "name": "afragen/wordpress-plugin-readme-parser",

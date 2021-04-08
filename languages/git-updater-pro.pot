@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Git Updater PRO plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Git Updater PRO 0.1.0\n"
+"Project-Id-Version: Git Updater PRO 0.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/git-updater-pro\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-03-18T04:46:35+00:00\n"
+"POT-Creation-Date: 2021-04-08T00:58:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: git-updater-pro\n"
@@ -23,20 +23,55 @@ msgid "https://github.com/afragen/git-updater-pro"
 msgstr ""
 
 #. Description of the plugin
-msgid "A GitHub Updater add-on plugin that unlocks PRO features of updating and installing plugins and themes."
+msgid "A Git Updater add-on plugin that unlocks PRO features of remote installing plugins and themes, REST API, Webhooks, WP-CLI, and more."
 msgstr ""
 
 #. Author of the plugin
 msgid "Andy Fragen"
 msgstr ""
 
+#: src/Git_Updater_PRO/API/Zipfile_API.php:86
+msgid "Zipfile Slug"
+msgstr ""
+
+#: src/Git_Updater_PRO/API/Zipfile_API.php:102
+msgid "Enter plugin or theme slug."
+msgstr ""
+
+#. translators: 1: branch name, 2: jQuery dropdown, 3: closing tag
+#: src/Git_Updater_PRO/Branch_Switcher.php:289
+#: src/Git_Updater_PRO/Branch_Switcher.php:391
+msgid "Current branch is `%1$s`, try %2$sanother version%3$s"
+msgstr ""
+
+#: src/Git_Updater_PRO/Branch_Switcher.php:297
+msgid "Choose a Version"
+msgstr ""
+
+#: src/Git_Updater_PRO/Branch_Switcher.php:340
+#: src/Git_Updater_PRO/Branch_Switcher.php:498
+msgid "No previous tags to rollback to."
+msgstr ""
+
+#: src/Git_Updater_PRO/Branch_Switcher.php:344
+msgid "Install"
+msgstr ""
+
+#: src/Git_Updater_PRO/Branch_Switcher.php:430
+msgid "Switch to branch "
+msgstr ""
+
+#: src/Git_Updater_PRO/Branch_Switcher.php:490
+msgid "Switch to release "
+msgstr ""
+
 #: src/Git_Updater_PRO/Install.php:104
-#: src/Git_Updater_PRO/Install.php:325
+#: src/Git_Updater_PRO/Install.php:318
 msgid "Install Plugin"
 msgstr ""
 
 #: src/Git_Updater_PRO/Install.php:107
-#: src/Git_Updater_PRO/Install.php:328
+#: src/Git_Updater_PRO/Install.php:321
 msgid "Install Theme"
 msgstr ""
 
@@ -44,73 +79,73 @@ msgstr ""
 msgid "A repository URI is required."
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:345
+#: src/Git_Updater_PRO/Install.php:338
 msgid "Plugin"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:348
+#: src/Git_Updater_PRO/Install.php:341
 msgid "Theme"
 msgstr ""
 
 #. translators: variable is 'Plugin' or 'Theme'
-#: src/Git_Updater_PRO/Install.php:360
+#: src/Git_Updater_PRO/Install.php:353
 msgid "Git Updater Install %s"
 msgstr ""
 
 #. translators: variable is 'Plugin' or 'Theme'
-#: src/Git_Updater_PRO/Install.php:368
+#: src/Git_Updater_PRO/Install.php:361
 msgid "%s URI"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:376
+#: src/Git_Updater_PRO/Install.php:369
 msgid "Repository Branch"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:384
+#: src/Git_Updater_PRO/Install.php:377
 msgid "Remote Repository Host"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:419
+#: src/Git_Updater_PRO/Install.php:412
 msgid "URI is case sensitive."
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:434
+#: src/Git_Updater_PRO/Install.php:427
 msgid "Enter branch name or leave empty for `master`"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:484
+#: src/Git_Updater_PRO/Install.php:477
 msgid "Activate"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:496
+#: src/Git_Updater_PRO/Install.php:489
 msgctxt "This refers to a network activation in a multisite installation"
 msgid "Network Enable"
 msgstr ""
 
-#: src/Git_Updater_PRO/Remote_Management.php:97
-#: src/Git_Updater_PRO/Remote_Management.php:148
+#: src/Git_Updater_PRO/Remote_Management.php:58
+#: src/Git_Updater_PRO/Remote_Management.php:109
 msgid "Remote Management"
 msgstr ""
 
-#: src/Git_Updater_PRO/Remote_Management.php:130
+#: src/Git_Updater_PRO/Remote_Management.php:91
 msgid "Reset REST API key"
 msgstr ""
 
-#: src/Git_Updater_PRO/Remote_Management.php:167
+#: src/Git_Updater_PRO/Remote_Management.php:128
 msgid "Remote Management services should just work for plugins like MainWP, ManageWP, InfiniteWP, iThemes Sync and others."
 msgstr ""
 
 #. translators: %s: Link to Git Remote Updater repository
-#: src/Git_Updater_PRO/Remote_Management.php:174
+#: src/Git_Updater_PRO/Remote_Management.php:135
 msgid "The <a href=\"%s\">Git Remote Updater</a> plugin was specifically created to make the remote management of Git Updater supported plugins and themes much simpler. You will need the Site URL and REST API key to use with Git Remote Updater settings."
 msgstr ""
 
 #. translators: 1: home URL, 2: REST API key
-#: src/Git_Updater_PRO/Remote_Management.php:184
+#: src/Git_Updater_PRO/Remote_Management.php:145
 msgid "Site URL: %1$s<br> REST API key: %2$s"
 msgstr ""
 
 #. translators: 1: Link to wiki, 2: RESTful API URL
-#: src/Git_Updater_PRO/Remote_Management.php:195
+#: src/Git_Updater_PRO/Remote_Management.php:156
 msgid "Please refer to the <a href=\"%1$s\">wiki</a> for complete list of attributes. REST API endpoints for webhook updating begin at: %2$s"
 msgstr ""

@@ -10,7 +10,7 @@
 
 namespace Fragen\Git_Updater\PRO\REST;
 
-use Fragen\Git_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\GU_Trait;
 use Fragen\Singleton;
 
 /**
@@ -24,14 +24,14 @@ if ( ! defined( 'WPINC' ) ) {
  * Class REST_API
  */
 class REST_API {
-	use GHU_Trait;
+	use GU_Trait;
 
 	/**
 	 * Holds REST namespace.
 	 *
 	 * @var string
 	 */
-	public static $namespace = 'github-updater/v1';
+	public static $namespace = 'git-updater/v1';
 
 	/**
 	 * Register REST API endpoints.
@@ -118,6 +118,48 @@ class REST_API {
 				],
 			]
 		);
+
+		register_rest_route(
+			'github-updater/v1',
+			'test',
+			[
+				'methods'             => \WP_REST_Server::READABLE,
+				'callback'            => [ $this, 'deprecated' ],
+				'permission_callback' => '__return_true',
+			]
+		);
+
+		register_rest_route(
+			'github-updater/v1',
+			'repos',
+			[
+				'methods'             => \WP_REST_Server::READABLE,
+				'callback'            => [ $this, 'deprecated' ],
+				'permission_callback' => '__return_true',
+			]
+		);
+		register_rest_route(
+			'github-updater/v1',
+			'update',
+			[
+				'methods'             => \WP_REST_Server::READABLE,
+				'callback'            => [ $this, 'deprecated' ],
+				'permission_callback' => '__return_true',
+			]
+		);
+	}
+
+	/**
+	 * Return deprecation notice.
+	 *
+	 * @return array
+	 */
+	public function deprecated() {
+		$namespace = self::$namespace;
+		return [
+			'success' => false,
+			'error'   => "The 'github-updater/v1' REST route namespace has been deprecated. Please use '{$namespace}'",
+		];
 	}
 
 	/**
@@ -134,16 +176,16 @@ class REST_API {
 	 *
 	 * @param \WP_REST_Request $request REST API response.
 	 *
-	 * @return string
+	 * @return array
 	 */
 	public function get_remote_repo_data( \WP_REST_Request $request ) {
 		// Test for API key and exit if incorrect.
 		if ( $this->get_class_vars( 'Remote_Management', 'api_key' ) !== $request->get_param( 'key' ) ) {
 			return [ 'error' => 'Bad API key. No repo data for you.' ];
 		}
-		$ghu_plugins = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
-		$ghu_themes  = Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this )->get_theme_configs();
-		$ghu_tokens  = array_merge( $ghu_plugins, $ghu_themes );
+		$gu_plugins = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
+		$gu_themes  = Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this )->get_theme_configs();
+		$gu_tokens  = array_merge( $gu_plugins, $gu_themes );
 
 		$plugin_updates = get_site_option( 'git_updater_plugin_updates' );
 		$theme_updates  = get_site_option( 'git_updater_theme_updates' );
@@ -155,7 +197,7 @@ class REST_API {
 			],
 			home_url( 'wp-json/' . self::$namespace . '/update/' )
 		);
-		foreach ( $ghu_tokens as $token ) {
+		foreach ( $gu_tokens as $token ) {
 			$update_package = false;
 			if ( 'plugin' === $token->type && array_key_exists( $token->file, (array) $plugin_updates ) ) {
 				$update_package = $plugin_updates[ $token->file ];

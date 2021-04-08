@@ -11,7 +11,7 @@
 namespace Fragen\Git_Updater\PRO;
 
 use Fragen\Singleton;
-use Fragen\Git_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\GU_Trait;
 use Fragen\Git_Updater\API\Language_Pack_API;
 
 /**
@@ -25,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Class Language_Pack
  */
 class Language_Pack {
-	use GHU_Trait;
+	use GU_Trait;
 
 	/**
 	 * Variable containing the plugin/theme object.

@@ -292,7 +292,7 @@ class CLI_Integration extends WP_CLI_Command {
 		$branch_data['git_updater_branch'] = $cli_config['branch'];
 		$branch_data['repo']               = $slug;
 
-		Singleton::get_instance( 'Fragen\Git_Updater\Branch', $this )->set_branch_on_install( $branch_data );
+		Singleton::get_instance( 'Fragen\Git_Updater\PRO\Branch_Switcher', $this )->set_branch_on_install( $branch_data );
 	}
 }
 

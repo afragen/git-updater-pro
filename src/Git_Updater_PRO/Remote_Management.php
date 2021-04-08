@@ -10,14 +10,13 @@
 
 namespace Fragen\Git_Updater\PRO;
 
-use Fragen\Git_Updater\Traits\GHU_Trait;
+use Fragen\Git_Updater\Traits\GU_Trait;
 
 /**
  * Class Remote_Management
  */
 class Remote_Management {
-
-	use GHU_Trait;
+	use GU_Trait;
 
 	/**
 	 * Holds the value for the Remote Management API key.
@@ -156,7 +155,7 @@ class Remote_Management {
 				/* translators: 1: Link to wiki, 2: RESTful API URL */
 				__( 'Please refer to the <a href="%1$s">wiki</a> for complete list of attributes. REST API endpoints for webhook updating begin at: %2$s', 'git-updater-pro' )
 			),
-			'https://github.com/afragen/github-updater/wiki/Remote-Management---RESTful-Endpoints',
+			'https://github.com/afragen/git-updater/wiki/Remote-Management---RESTful-Endpoints',
 			'<br><span style="font-family:monospace;">' . esc_url( $api_url ) . '</span>'
 		);
 		echo '</p>';
