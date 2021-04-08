@@ -20,6 +20,9 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+/**
+ * Class Branch_Switcher
+ */
 class Branch_Switcher {
 	use GU_Trait;
 
@@ -37,6 +40,9 @@ class Branch_Switcher {
 	 */
 	protected $base;
 
+	/**
+	 * Constructor.
+	 */
 	public function __construct() {
 		self::$options = $this->get_class_vars( 'Fragen\Git_Updater\Base', 'options' );
 		$this->base    = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this );
@@ -45,13 +51,12 @@ class Branch_Switcher {
 	/**
 	 * Update transient for rollback or branch switch.
 	 *
-	 * @param string    $type          plugin|theme.
-	 * @param \stdClass $repo          Repo object.
-	 * @param bool      $set_transient Default false, if true then set update transient.
+	 * @param string    $type plugin|theme.
+	 * @param \stdClass $repo Repo object.
 	 *
 	 * @return array $rollback Rollback transient.
 	 */
-	public function set_rollback_transient( $type, $repo, $set_transient = false ) {
+	public function set_rollback_transient( $type, $repo ) {
 		$repo_api = Singleton::get_instance( 'API\API', $this )->get_repo_api( $repo->git, $repo );
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$this->tag     = isset( $_GET['rollback'] ) ? sanitize_text_field( wp_unslash( $_GET['rollback'] ) ) : false;
