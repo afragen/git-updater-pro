@@ -21,9 +21,9 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Class Branch_Switcher
+ * Class Branch
  */
-class Branch_Switcher {
+class Branch {
 	use GU_Trait;
 
 	/**
