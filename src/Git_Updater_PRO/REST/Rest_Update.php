@@ -12,6 +12,7 @@ namespace Fragen\Git_Updater\PRO\REST;
 
 use Fragen\Singleton;
 use Fragen\Git_Updater\Traits\GU_Trait;
+use Fragen\Git_Updater\PRO\Branch_Switcher;
 
 /*
  * Exit if called directly.
@@ -360,7 +361,7 @@ class Rest_Update {
 			$repo  = isset( $repos[ $theme ] ) ? $repos[ $theme ] : false;
 		}
 		$current_branch = $repo ?
-			Singleton::get_instance( 'Fragen\Git_Updater\Branch', $this )->get_current_branch( $repo ) :
+			( new Branch_Switcher() )->get_current_branch( $repo ) :
 			'master';
 
 		return $current_branch;

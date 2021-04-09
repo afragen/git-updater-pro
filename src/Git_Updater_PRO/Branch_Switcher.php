@@ -49,6 +49,23 @@ class Branch_Switcher {
 	}
 
 	/**
+	 * Get the current repo branch.
+	 *
+	 * @access public
+	 *
+	 * @param \stdClass $repo Repository object.
+	 *
+	 * @return mixed
+	 */
+	public function get_current_branch( $repo ) {
+		$current_branch = ! empty( $this->cache['current_branch'] )
+			? $this->cache['current_branch']
+			: $repo->branch;
+
+		return $current_branch;
+	}
+
+	/**
 	 * Update transient for rollback or branch switch.
 	 *
 	 * @param string    $type plugin|theme.
@@ -193,7 +210,7 @@ class Branch_Switcher {
 
 		// Get current branch.
 		$repo   = $config[ $plugin['slug'] ];
-		$branch = Singleton::get_instance( 'Fragen\Git_Updater\Branch', $this )->get_current_branch( $repo );
+		$branch = $this->get_current_branch( $repo );
 
 		$branch_switch_data                      = [];
 		$branch_switch_data['slug']              = $plugin['slug'];
@@ -243,7 +260,7 @@ class Branch_Switcher {
 
 		// Get current branch.
 		$repo   = $config[ $theme_key ];
-		$branch = Singleton::get_instance( 'Fragen\Git_Updater\Branch', $this )->get_current_branch( $repo );
+		$branch = $this->get_current_branch( $repo );
 
 		$branch_switch_data                      = [];
 		$branch_switch_data['slug']              = $theme_key;
