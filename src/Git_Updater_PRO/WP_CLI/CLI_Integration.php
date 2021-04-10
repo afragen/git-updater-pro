@@ -13,6 +13,8 @@ namespace Fragen\Git_Updater\PRO\WP_CLI;
 use WP_CLI;
 use WP_CLI_Command;
 use Fragen\Singleton;
+use Fragen\Git_Updater\PRO\Branch;
+use Fragen\Git_Updater\PRO\Install;
 
 // Add WP-CLI commands.
 $class = new CLI_Integration();
@@ -103,7 +105,7 @@ class CLI_Integration extends WP_CLI_Command {
 	public function install_plugin( $args, $assoc_args ) {
 		list($uri)  = $args;
 		$cli_config = $this->process_args( $uri, $assoc_args );
-		Singleton::get_instance( 'Fragen\Git_Updater\PRO\Install', $this )->install( 'plugin', $cli_config );
+		( new Install() )->install( 'plugin', $cli_config );
 
 		$headers = parse_url( $uri, PHP_URL_PATH );
 		$slug    = basename( $headers );
@@ -174,7 +176,7 @@ class CLI_Integration extends WP_CLI_Command {
 	public function install_theme( $args, $assoc_args ) {
 		list($uri)  = $args;
 		$cli_config = $this->process_args( $uri, $assoc_args );
-		Singleton::get_instance( 'Fragen\Git_Updater\PRO\Install', $this )->install( 'theme', $cli_config );
+		( new Install() )->install( 'theme', $cli_config );
 
 		$headers = parse_url( $uri, PHP_URL_PATH );
 		$slug    = basename( $headers );
@@ -292,7 +294,7 @@ class CLI_Integration extends WP_CLI_Command {
 		$branch_data['git_updater_branch'] = $cli_config['branch'];
 		$branch_data['repo']               = $slug;
 
-		Singleton::get_instance( 'Fragen\Git_Updater\PRO\Branch', $this )->set_branch_on_install( $branch_data );
+		( new Branch() )->set_branch_on_install( $branch_data );
 	}
 }
 
