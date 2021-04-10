@@ -103,7 +103,7 @@ class Remote_Management {
 		$display = isset( $_GET['reset'] ) && '1' === $_GET['reset'];
 		if ( $display ) {
 			echo '<div class="updated"><p>';
-			esc_html_e( 'RESTful key reset.', 'git-updater' );
+			esc_html_e( 'REST API key reset.', 'git-updater' );
 			echo '</p></div>';
 		}
 	}
