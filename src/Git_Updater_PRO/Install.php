@@ -205,7 +205,7 @@ class Install {
 
 			// Install the repo from the $source urldecode() and save branch setting.
 			if ( $upgrader && $upgrader->install( $url ) ) {
-				Singleton::get_instance( 'Fragen\Git_Updater\PRO\Branch_Switcher', $this )->set_branch_on_install( self::$install );
+				( new Branch() )->set_branch_on_install( self::$install );
 			} else {
 				return false;
 			}
