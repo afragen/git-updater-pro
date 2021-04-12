@@ -82,7 +82,8 @@ class Remote_Management {
 	 */
 	public function add_admin_page( $tab, $action ) {
 		if ( 'git_updater_remote_management' === $tab ) {
-			$action = add_query_arg( 'tab', $tab, $action ); ?>
+			$action = add_query_arg( 'tab', $tab, $action );
+			$this->admin_page_notices(); ?>
 			<form class="settings" method="post" action="<?php esc_attr_e( $action ); ?>">
 				<?php do_settings_sections( 'git_updater_remote_settings' ); ?>
 			</form>
@@ -91,6 +92,19 @@ class Remote_Management {
 				<?php submit_button( esc_html__( 'Reset REST API key', 'git-updater-pro' ) ); ?>
 			</form>
 			<?php
+		}
+	}
+
+	/**
+	 * Display appropriate notice for Remote Management page action.
+	 */
+	private function admin_page_notices() {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$display = isset( $_GET['reset'] ) && '1' === $_GET['reset'];
+		if ( $display ) {
+			echo '<div class="updated"><p>';
+			esc_html_e( 'REST API key reset.', 'git-updater' );
+			echo '</p></div>';
 		}
 	}
 

@@ -1,12 +1,12 @@
 {
   "name": "afragen/git-updater-pro",
-  "description": "A Git Updater add-on plugin that unlocks PRO features of updating and installing plugins and themes.",
+  "description": "A Git Updater add-on plugin that unlocks PRO features of branch switching, installing plugins and themes, REST API, WP-CLI, and more.",
   "type": "wordpress-plugin",
   "keywords": [
     "wordpress",
     "plugin",
     "theme",
-    "updater",
+    "branch switch",
     "install"
   ],
   "license": "MIT",
