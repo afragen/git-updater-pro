@@ -7,7 +7,7 @@
 ![WordPress Tests](https://github.com/afragen/git-updater-pro/workflows/WordPress%20Tests/badge.svg)
 
 * Contributors: [Andy Fragen](https://github.com/afragen), [contributors](https://github.com/afragen/git-updater-pro/graphs/contributors)
-* Tags: plugin, theme, update, remote install
+* Tags: plugin, theme, branch switch, remote install
 * Requires at least: 5.2
 * Requires PHP: 7.0
 * Tested up to: trunk
