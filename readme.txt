@@ -11,7 +11,7 @@
 
 ## Description
 
-This is a Git~~Hub~~ Updater add-on plugin that unlocks PRO features of branch switching, remote installation of plugins and themes, Remote Management, REST API, Webhooks, WP-CLI, and more.
+This is a Git Updater add-on plugin that unlocks PRO features of branch switching, remote installation of plugins and themes, Remote Management, REST API, Webhooks, WP-CLI, and more.
 
 #### Sponsor
 
@@ -21,9 +21,9 @@ You can [sponsor me on GitHub](https://github.com/sponsors/afragen) to help with
 
 #### Wiki
 
-[Comprehensive information regarding Git~~Hub~~ Updater is available on the wiki.](https://github.com/afragen/git-updater/wiki)
+[Comprehensive information regarding Git Updater is available on the wiki.](https://github.com/afragen/git-updater/wiki)
 
 
 #### Slack
 
-We now have a [Slack team for Git~~Hub~~ Updater](https://git-updater.slack.com). Please [click here for an invite](https://github-updater.herokuapp.com). You will be automatically added to the _#general_ and _#support_ channels. Please take a look at other channels too.
+We now have a [Slack team for Git Updater](https://git-updater.slack.com). Please [click here for an invite](https://github-updater.herokuapp.com). You will be automatically added to the _#general_ and _#support_ channels. Please take a look at other channels too.
