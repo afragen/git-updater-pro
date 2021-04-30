@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Git Updater PRO plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Git Updater PRO 0.3.3\n"
+"Project-Id-Version: Git Updater PRO 0.3.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/git-updater-pro\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-04-12T01:19:41+00:00\n"
+"POT-Creation-Date: 2021-04-29T23:52:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: git-updater-pro\n"
@@ -28,14 +28,6 @@ msgstr ""
 
 #. Author of the plugin
 msgid "Andy Fragen"
-msgstr ""
-
-#: src/Git_Updater_PRO/API/Zipfile_API.php:86
-msgid "Zipfile Slug"
-msgstr ""
-
-#: src/Git_Updater_PRO/API/Zipfile_API.php:102
-msgid "Enter plugin or theme slug."
 msgstr ""
 
 #. translators: 1: branch name, 2: jQuery dropdown, 3: closing tag
@@ -129,6 +121,10 @@ msgstr ""
 
 #: src/Git_Updater_PRO/Remote_Management.php:92
 msgid "Reset REST API key"
+msgstr ""
+
+#: src/Git_Updater_PRO/Remote_Management.php:106
+msgid "REST API key reset."
 msgstr ""
 
 #: src/Git_Updater_PRO/Remote_Management.php:142
