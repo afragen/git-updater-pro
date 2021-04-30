@@ -40,6 +40,11 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require __DIR__ . '/vendor/autoload.php';
 }
 
+// Don't load if Git Updater not running.
+if ( ! \is_plugin_active( 'git-updater/git-updater.php' ) ) {
+	return;
+}
+
 ( new GUP_Freemius() )->init();
 add_action(
 	'plugins_loaded',
