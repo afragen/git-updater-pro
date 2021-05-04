@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-develop',
-    'version' => 'dev-develop',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => 'd288c6be6dde936ace9794599dfed7681af5f2e1',
+    'reference' => '2a22ae741f86a92059c6187b82b23f1f6e1223cc',
     'name' => 'afragen/git-updater-pro',
   ),
   'versions' => 
   array (
     'afragen/git-updater-pro' => 
     array (
-      'pretty_version' => 'dev-develop',
-      'version' => 'dev-develop',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => 'd288c6be6dde936ace9794599dfed7681af5f2e1',
+      'reference' => '2a22ae741f86a92059c6187b82b23f1f6e1223cc',
     ),
     'afragen/singleton' => 
     array (
