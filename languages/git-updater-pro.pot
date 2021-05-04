@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Git Updater PRO plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Git Updater PRO 0.3.4\n"
+"Project-Id-Version: Git Updater PRO 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/git-updater-pro\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-04-29T23:52:09+00:00\n"
+"POT-Creation-Date: 2021-05-04T02:52:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: git-updater-pro\n"
@@ -31,29 +31,29 @@ msgid "Andy Fragen"
 msgstr ""
 
 #. translators: 1: branch name, 2: jQuery dropdown, 3: closing tag
-#: src/Git_Updater_PRO/Branch.php:306
-#: src/Git_Updater_PRO/Branch.php:408
+#: src/Git_Updater_PRO/Branch.php:307
+#: src/Git_Updater_PRO/Branch.php:409
 msgid "Current branch is `%1$s`, try %2$sanother version%3$s"
 msgstr ""
 
-#: src/Git_Updater_PRO/Branch.php:314
+#: src/Git_Updater_PRO/Branch.php:315
 msgid "Choose a Version"
 msgstr ""
 
-#: src/Git_Updater_PRO/Branch.php:357
-#: src/Git_Updater_PRO/Branch.php:515
+#: src/Git_Updater_PRO/Branch.php:358
+#: src/Git_Updater_PRO/Branch.php:516
 msgid "No previous tags to rollback to."
 msgstr ""
 
-#: src/Git_Updater_PRO/Branch.php:361
+#: src/Git_Updater_PRO/Branch.php:362
 msgid "Install"
 msgstr ""
 
-#: src/Git_Updater_PRO/Branch.php:447
+#: src/Git_Updater_PRO/Branch.php:448
 msgid "Switch to branch "
 msgstr ""
 
-#: src/Git_Updater_PRO/Branch.php:507
+#: src/Git_Updater_PRO/Branch.php:508
 msgid "Switch to release "
 msgstr ""
 
