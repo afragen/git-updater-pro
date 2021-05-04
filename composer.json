@@ -35,13 +35,16 @@
   },
   "require": {
     "php": ">=7.0",
-    "afragen/singleton": "dev-master"
+    "afragen/singleton": "dev-master",
+    "freemius/wordpress-sdk": "*"
   },
   "autoload": {
     "psr-4": {
-      "Fragen\\Git_Updater\\PRO\\": "src/Git_Updater_PRO/",
-      "Fragen\\Git_Updater\\API\\": "src/Git_Updater_PRO/API"
-    }
+      "Fragen\\Git_Updater\\PRO\\": "src/Git_Updater_PRO/"
+    },
+    "files": [
+      "./vendor/freemius/wordpress-sdk/start.php"
+    ]
   },
   "scripts": {
     "post-update-cmd": [

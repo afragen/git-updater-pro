@@ -21,14 +21,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Load textdomain.
-add_action(
-	'init',
-	function () {
-		load_plugin_textdomain( 'git-updater-pro' );
-	}
-);
-
 /**
  * Class Bootstrap
  */
@@ -41,6 +33,9 @@ class Bootstrap {
 	 * @return bool|void
 	 */
 	public function run() {
+		if ( ! gup_fs()->can_use_premium_code() ) {
+			return;
+		}
 		$this->load_hooks();
 
 		if ( static::is_wp_cli() ) {

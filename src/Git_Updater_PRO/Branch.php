@@ -58,8 +58,9 @@ class Branch {
 	 * @return mixed
 	 */
 	public function get_current_branch( $repo ) {
-		$current_branch = ! empty( $this->cache['current_branch'] )
-			? $this->cache['current_branch']
+		$cache          = $this->get_repo_cache( $repo->slug );
+		$current_branch = ! empty( $cache['current_branch'] )
+			? $cache['current_branch']
 			: $repo->branch;
 
 		return $current_branch;
