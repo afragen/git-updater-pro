@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'd288c6be6dde936ace9794599dfed7681af5f2e1',
+    'reference' => '5ba4aaccacecd82616ace63944bcce56e266b474',
     'name' => 'afragen/git-updater-pro',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'd288c6be6dde936ace9794599dfed7681af5f2e1',
+      'reference' => '5ba4aaccacecd82616ace63944bcce56e266b474',
     ),
     'afragen/singleton' => 
     array (
