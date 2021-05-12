@@ -173,6 +173,9 @@ class Branch {
 	public function set_branch_on_install( $install ) {
 		$this->set_repo_cache( 'current_branch', $install['git_updater_branch'], $install['repo'] );
 		self::$options[ 'current_branch_' . $install['repo'] ] = $install['git_updater_branch'];
+		self::$options = isset( $install['options'] ) && is_array( $install['options'] )
+			? array_merge( self::$options, $install['options'] )
+			: self::$options;
 		update_site_option( 'git_updater', self::$options );
 	}
 
