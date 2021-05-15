@@ -19,9 +19,9 @@ You can [sponsor me on GitHub](https://github.com/sponsors/afragen) to help with
 
 ## Frequently Asked Questions
 
-#### Wiki
+#### Knowledge Base
 
-[Comprehensive information regarding Git Updater is available on the wiki.](https://github.com/afragen/git-updater/wiki)
+[Comprehensive information regarding Git Updater is available in the Knowledge Base.](https://git-updater.com/knowledge-base)
 
 
 #### Slack

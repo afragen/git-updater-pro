@@ -2,8 +2,6 @@
 
 # Git Updater PRO
 
-![downloads](https://img.shields.io/github/downloads/afragen/git-updater-pro/total) ![downloads@latest](https://img.shields.io/github/downloads/afragen/git-updater-pro/latest/total)
-
 ![WordPress Tests](https://github.com/afragen/git-updater-pro/workflows/WordPress%20Tests/badge.svg)
 
 * Contributors: [Andy Fragen](https://github.com/afragen), [contributors](https://github.com/afragen/git-updater-pro/graphs/contributors)
@@ -17,9 +15,7 @@
 
 A [Git Updater](https://github.com/afragen/git-updater) add-on plugin that unlocks PRO features of branch switching, remote installing plugins and themes, Remote Management, REST API, Webhooks, WP-CLI, and more.
 
-[Comprehensive information regarding Git Updater is available on the wiki.](https://github.com/afragen/git-updater/wiki)
-
-[Install the latest version here.](https://github.com/afragen/git-updater-pro/releases/latest)
+[Comprehensive information regarding Git Updater is available in the Knowledge Base.](https://git-updater.com/knowledge-base)
 
 ## Description
 
@@ -27,7 +23,7 @@ This is a Git Updater add-on plugin. It allows for branch switching, remote inst
 
 ### API plugins
 
-API plugins for Bitbucket, GitLab, Gitea, and Gist are available.
+API plugins for Bitbucket, GitLab, Gitea, and Gist are available. API plugins are available for a one-click install from the **Add-Ons** tab.
 
 * [Git Updater - Bitbucket](https://github.com/afragen/git-updater-bitbucket/releases/latest)
 * [Git Updater - GitLab](https://github.com/afragen/git-updater-gitlab/releases/latest)
