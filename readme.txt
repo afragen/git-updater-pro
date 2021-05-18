@@ -23,7 +23,6 @@ You can [sponsor me on GitHub](https://github.com/sponsors/afragen) to help with
 
 [Comprehensive information regarding Git Updater is available in the Knowledge Base.](https://git-updater.com/knowledge-base)
 
-
 #### Slack
 
 We now have a [Slack team for Git Updater](https://git-updater.slack.com). Please [click here for an invite](https://github-updater.herokuapp.com). You will be automatically added to the _#general_ and _#support_ channels. Please take a look at other channels too.

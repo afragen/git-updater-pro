@@ -5,7 +5,7 @@
 ![WordPress Tests](https://github.com/afragen/git-updater-pro/workflows/WordPress%20Tests/badge.svg)
 
 * Contributors: [Andy Fragen](https://github.com/afragen), [contributors](https://github.com/afragen/git-updater-pro/graphs/contributors)
-* Tags: plugin, theme, branch switch, remote install
+* Tags: branch switch, remote install, REST API, Webhooks, WP-CLI
 * Requires at least: 5.2
 * Requires PHP: 7.0
 * Tested up to: trunk
