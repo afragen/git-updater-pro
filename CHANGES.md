@@ -2,6 +2,7 @@
 
 #### 1.0.2 / 2021-05-21
 * add language pack updates
+* add check when Git Updater loaded as mu-plugin
 
 #### 1.0.1 / 2021-05-18
 * ensure custom icon shows in update notice from Freemius
