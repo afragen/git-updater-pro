@@ -61,5 +61,56 @@ class Bootstrap {
 		// Deprecated AJAX request.
 		add_action( 'wp_ajax_git-updater-update', [ Singleton::get_instance( 'REST\Rest_Update', $this ), 'process_request' ] );
 		add_action( 'wp_ajax_nopriv_git-updater-update', [ Singleton::get_instance( 'REST\Rest_Update', $this ), 'process_request' ] );
+
+		// Use Freemius, not Git Updater.
+		add_filter(
+			'gu_github_api_no_check',
+			function( $false, $repo ) {
+				return 'git-updater-pro/git-updater-pro.php' === $repo->file;
+			},
+			10,
+			2
+		);
+
+		// Skip on waiting for background tasks.
+		add_filter(
+			'gu_github_api_no_wait',
+			function( $repos ) {
+				unset( $repos['git-updater-pro'] );
+
+				return $repos;
+			},
+			10,
+			1
+		);
+
+		// Fix to display properly in GitHub subtab.
+		add_filter(
+			'gu_display_repos',
+			function( $type_repos ) {
+				if ( isset( $type_repos['git-updater-pro'] ) ) {
+					$type_repos['git-updater-pro']->is_private     = true;
+					$type_repos['git-updater-pro']->remote_version = true;
+				}
+
+				return $type_repos;
+			},
+			10,
+			1
+		);
+
+		// Don't display token field.
+		add_filter(
+			'gu_add_repo_setting_field',
+			function( $arr, $token ) {
+				if ( 'git-updater-pro/git-updater-pro.php' === $token->file ) {
+					$arr = [];
+				}
+
+				return $arr;
+			},
+			15,
+			2
+		);
 	}
 }
