@@ -1,4 +1,6 @@
 [unreleased]
+
+#### 1.1.0 / 2021-06-02
 * add filter to skip updating from Git Updater
 * add filter to display this plugin in GitHub subtab without errors
 
