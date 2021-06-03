@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '7ac5d1e54f8ed059f12c4cd0c948c6067f22b355',
+    'reference' => 'b68a0dbff36cad1e80a5c30f1f08452fa9f0b088',
     'name' => 'afragen/git-updater-pro',
   ),
   'versions' => 
@@ -44,7 +44,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '7ac5d1e54f8ed059f12c4cd0c948c6067f22b355',
+      'reference' => 'b68a0dbff36cad1e80a5c30f1f08452fa9f0b088',
     ),
     'afragen/singleton' => 
     array (
@@ -246,9 +246,23 @@ return $installed[0]['root'];
 
 
 
+
 public static function getRawData()
 {
+@trigger_error('getRawData only returns the first dataset loaded, which may not be what you expect. Use getAllRawData() instead which returns all datasets for all autoloaders present in the process.', E_USER_DEPRECATED);
+
 return self::$installed;
+}
+
+
+
+
+
+
+
+public static function getAllRawData()
+{
+return self::getInstalled();
 }
 
 

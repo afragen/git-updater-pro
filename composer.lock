@@ -100,29 +100,34 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/git-updater.git",
-                "reference": "67a2aa98366512df91d6280a8dd33ac85e4229f6"
+                "reference": "6fede9b618cbcf6cd46b1e8b17d0c022035d2dc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/git-updater/zipball/67a2aa98366512df91d6280a8dd33ac85e4229f6",
-                "reference": "67a2aa98366512df91d6280a8dd33ac85e4229f6",
+                "url": "https://api.github.com/repos/afragen/git-updater/zipball/6fede9b618cbcf6cd46b1e8b17d0c022035d2dc9",
+                "reference": "6fede9b618cbcf6cd46b1e8b17d0c022035d2dc9",
                 "shasum": ""
             },
             "require": {
                 "afragen/singleton": "dev-master",
                 "afragen/wordpress-plugin-readme-parser": "dev-master",
+                "afragen/wp-dependency-installer": "*",
                 "collizo4sky/persist-admin-notices-dismissal": "^1",
-                "php": ">=5.6"
+                "freemius/wordpress-sdk": "*",
+                "php": ">=7.0"
             },
             "type": "wordpress-plugin",
             "autoload": {
                 "psr-4": {
-                    "Fragen\\GitHub_Updater\\": "src/GitHub_Updater/"
-                }
+                    "Fragen\\Git_Updater\\": "src/Git_Updater/"
+                },
+                "files": [
+                    "./vendor/freemius/wordpress-sdk/start.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "MIT"
             ],
             "authors": [
                 {
@@ -132,17 +137,16 @@
                     "role": "Developer"
                 }
             ],
-            "description": "A plugin to automatically update GitHub, Bitbucket, GitLab, or Gitea hosted plugins, themes, and language packs. It also allows for remote installation of plugins or themes into WordPress.",
+            "description": "A plugin to automatically update GitHub, Bitbucket, GitLab, or Gitea hosted plugins, themes, and language packs.",
             "keywords": [
-                "install",
                 "plugin",
                 "theme",
                 "updater",
                 "wordpress"
             ],
             "support": {
-                "issues": "https://github.com/afragen/github-updater/issues",
-                "source": "https://github.com/afragen/github-updater"
+                "issues": "https://github.com/afragen/git-updater/issues",
+                "source": "https://github.com/afragen/git-updater"
             },
             "funding": [
                 {
@@ -150,7 +154,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-06T14:44:14+00:00"
+            "time": "2021-06-03T00:32:07+00:00"
         },
         {
             "name": "afragen/wordpress-plugin-readme-parser",
@@ -198,6 +202,59 @@
                 "source": "https://github.com/afragen/wordpress-plugin-readme-parser/tree/master"
             },
             "time": "2021-01-11T22:07:25+00:00"
+        },
+        {
+            "name": "afragen/wp-dependency-installer",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/afragen/wp-dependency-installer.git",
+                "reference": "65570a1eb966bb9adfc9d9e521357da080fbdc5a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/65570a1eb966bb9adfc9d9e521357da080fbdc5a",
+                "reference": "65570a1eb966bb9adfc9d9e521357da080fbdc5a",
+                "shasum": ""
+            },
+            "require": {
+                "collizo4sky/persist-admin-notices-dismissal": "^1",
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "wp-dependency-installer.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andy Fragen",
+                    "email": "andy@thefragens.com",
+                    "homepage": "https://thefragens.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Matt Gibbs",
+                    "homepage": "https://facetwp.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Raruto",
+                    "homepage": "https://raruto.github.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library that helps WordPress plugin dependency management.",
+            "support": {
+                "issues": "https://github.com/afragen/wp-dependency-installer/issues",
+                "source": "https://github.com/afragen/wp-dependency-installer"
+            },
+            "time": "2020-11-10T23:03:42+00:00"
         },
         {
             "name": "collizo4sky/persist-admin-notices-dismissal",
