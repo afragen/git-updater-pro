@@ -68,25 +68,12 @@ class Bootstrap {
 		 * @since Git Updater 10.2.0
 		 */
 		if ( ! \apply_filters( 'gu_test_premium_plugins', false ) ) {
-			// Use Freemius, not Git Updater.
 			add_filter(
 				'gu_config_pre_process',
 				function( $config ) {
 					unset( $config['git-updater-pro'] );
 
 					return $config;
-				},
-				10,
-				1
-			);
-
-			// Skip on waiting for background tasks.
-			add_filter(
-				'gu_github_api_no_wait',
-				function( $repos ) {
-					unset( $repos['git-updater-pro'] );
-
-					return $repos;
 				},
 				10,
 				1
