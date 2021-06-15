@@ -65,7 +65,7 @@ class GUP_Freemius {
 								'support' => false,
 								'network' => true,
 								'parent'  => [
-									'slug' => 'options-general.php',
+									'slug' => is_multisite() ? 'settings.php' : 'options-general.php',
 								],
 							],
 							// Set the SDK to work in a sandbox mode (for development & testing).

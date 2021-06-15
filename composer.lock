@@ -100,12 +100,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/git-updater.git",
-                "reference": "6fede9b618cbcf6cd46b1e8b17d0c022035d2dc9"
+                "reference": "b86d8a6f75f18226e235fc7b3933a49f318f646a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/git-updater/zipball/6fede9b618cbcf6cd46b1e8b17d0c022035d2dc9",
-                "reference": "6fede9b618cbcf6cd46b1e8b17d0c022035d2dc9",
+                "url": "https://api.github.com/repos/afragen/git-updater/zipball/b86d8a6f75f18226e235fc7b3933a49f318f646a",
+                "reference": "b86d8a6f75f18226e235fc7b3933a49f318f646a",
                 "shasum": ""
             },
             "require": {
@@ -154,7 +154,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-03T00:32:07+00:00"
+            "time": "2021-06-14T19:32:30+00:00"
         },
         {
             "name": "afragen/wordpress-plugin-readme-parser",
@@ -360,5 +360,5 @@
         "php": ">=7.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

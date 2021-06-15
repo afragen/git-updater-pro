@@ -1,5 +1,9 @@
 [unreleased]
 
+#### 1.1.1 / 2021-06-14
+* utilize new `class Ignore` in Git Updater
+* update Freemius menu for multisite
+
 #### 1.1.0 / 2021-06-02
 * add filter to skip updating from Git Updater
 * add filter to display this plugin in GitHub subtab without errors
