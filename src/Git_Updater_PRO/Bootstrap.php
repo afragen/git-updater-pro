@@ -11,6 +11,7 @@
 namespace Fragen\Git_Updater\PRO;
 
 use Fragen\Singleton;
+use Fragen\Git_Updater\Ignore;
 use Fragen\Git_Updater\Traits\GU_Trait;
 use Fragen\Git_Updater\PRO\REST\REST_API;
 
@@ -67,46 +68,50 @@ class Bootstrap {
 		 *
 		 * @since Git Updater 10.2.0
 		 */
-		if ( ! \apply_filters( 'gu_test_premium_plugins', false ) ) {
-			add_filter(
-				'gu_config_pre_process',
-				function( $config ) {
-					unset( $config['git-updater-pro'] );
+		if ( ! apply_filters( 'gu_test_premium_plugins', false ) ) {
+			if ( class_exists( 'Fragen\Git_Updater\Ignore' ) ) {
+				new Ignore( 'git-updater-pro', 'git-updater-pro/git-updater-pro.php' );
+			} else {
+				add_filter(
+					'gu_config_pre_process',
+					function( $config ) {
+						unset( $config['git-updater-pro'] );
 
-					return $config;
-				},
-				10,
-				1
-			);
+						return $config;
+					},
+					10,
+					1
+				);
 
-			// Fix to display properly in GitHub subtab.
-			add_filter(
-				'gu_display_repos',
-				function( $type_repos ) {
-					if ( isset( $type_repos['git-updater-pro'] ) ) {
-						$type_repos['git-updater-pro']->is_private     = true;
-						$type_repos['git-updater-pro']->remote_version = true;
-					}
+				// Fix to display properly in GitHub subtab.
+				add_filter(
+					'gu_display_repos',
+					function( $type_repos ) {
+						if ( isset( $type_repos['git-updater-pro'] ) ) {
+							$type_repos['git-updater-pro']->dismiss        = true;
+							$type_repos['git-updater-pro']->remote_version = true;
+						}
 
-					return $type_repos;
-				},
-				10,
-				1
-			);
+						return $type_repos;
+					},
+					10,
+					1
+				);
 
-			// Don't display token field.
-			add_filter(
-				'gu_add_repo_setting_field',
-				function( $arr, $token ) {
-					if ( 'git-updater-pro/git-updater-pro.php' === $token->file ) {
-						$arr = [];
-					}
+				// Don't display token field.
+				add_filter(
+					'gu_add_repo_setting_field',
+					function( $arr, $token ) {
+						if ( 'git-updater-pro/git-updater-pro.php' === $token->file ) {
+							$arr = [];
+						}
 
-					return $arr;
-				},
-				15,
-				2
-			);
+						return $arr;
+					},
+					15,
+					2
+				);
+			}
 		}
 	}
 }

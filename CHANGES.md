@@ -1,4 +1,5 @@
 [unreleased]
+* utilize new `class Ignore` in Git Updater
 * update Freemius menu for multisite
 
 #### 1.1.0 / 2021-06-02
