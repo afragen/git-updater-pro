@@ -41,10 +41,7 @@
   "autoload": {
     "psr-4": {
       "Fragen\\Git_Updater\\PRO\\": "src/Git_Updater_PRO/"
-    },
-    "files": [
-      "./vendor/freemius/wordpress-sdk/start.php"
-    ]
+    }
   },
   "scripts": {
     "post-update-cmd": [

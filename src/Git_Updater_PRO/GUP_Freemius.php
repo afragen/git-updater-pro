@@ -28,6 +28,8 @@ class GUP_Freemius {
 	 * @return array|void
 	 */
 	public function init() {
+		require_once dirname( __DIR__, 2 ) . '/vendor/freemius/wordpress-sdk/start.php';
+
 		if ( ! function_exists( 'gup_fs' ) ) {
 
 			/**
