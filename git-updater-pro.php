@@ -40,8 +40,13 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require __DIR__ . '/vendor/autoload.php';
 }
 
+// Make sure `is_plugin_active()` is available.
+if ( ! function_exists( 'is_plugin_active' ) ) {
+	require_once ABSPATH . '/wp-admin/includes/plugin.php';
+}
+
 // Don't load if Git Updater not running.
-if ( ! \is_plugin_active( 'git-updater/git-updater.php' )
+if ( ! is_plugin_active( 'git-updater/git-updater.php' )
 	|| defined( 'GU_MU_LOADER' ) && ! \GU_MU_LOADER
 ) {
 	return;
