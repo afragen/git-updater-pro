@@ -1,5 +1,3 @@
-![Git Updater PRO](./assets/GitHub_Updater_logo_small.png)
-
 # Git Updater PRO
 
 ![WordPress Tests](https://github.com/afragen/git-updater-pro/workflows/WordPress%20Tests/badge.svg)
