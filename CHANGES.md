@@ -1,4 +1,5 @@
 [unreleased]
+* update Freemius menu for multisite
 
 #### 1.1.0 / 2021-06-02
 * add filter to skip updating from Git Updater
