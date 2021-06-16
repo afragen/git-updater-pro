@@ -28,8 +28,6 @@ class GUP_Freemius {
 	 * @return array|void
 	 */
 	public function init() {
-		require_once dirname( __DIR__, 2 ) . '/vendor/freemius/wordpress-sdk/start.php';
-
 		if ( ! function_exists( 'gup_fs' ) ) {
 
 			/**
@@ -45,6 +43,9 @@ class GUP_Freemius {
 					if ( ! defined( 'WP_FS__PRODUCT_8282_MULTISITE' ) ) {
 						define( 'WP_FS__PRODUCT_8282_MULTISITE', true );
 					}
+
+					// Init Freemius SDK.
+					require_once dirname( __DIR__, 2 ) . '/vendor/freemius/wordpress-sdk/start.php';
 
 					$gup_fs = fs_dynamic_init(
 						[
