@@ -6,14 +6,11 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit388fe1ef227f29d2ec552eefda83d5a9
 {
-    public static $files = array (
-        '53e3f9b6a8f64a65f57c7ed51e0e37dc' => __DIR__ . '/..' . '/freemius/wordpress-sdk/start.php',
-    );
-
     public static $prefixLengthsPsr4 = array (
         'F' => 
         array (
             'Fragen\\Git_Updater\\PRO\\' => 23,
+            'Fragen\\Git_Updater\\' => 19,
         ),
     );
 
@@ -21,6 +18,10 @@ class ComposerStaticInit388fe1ef227f29d2ec552eefda83d5a9
         'Fragen\\Git_Updater\\PRO\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Git_Updater_PRO',
+        ),
+        'Fragen\\Git_Updater\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Git_Updater',
         ),
     );
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87120a95e546e0e658d398afaca01cba",
+    "content-hash": "d5c64a4f397d5810c0a5f53111a4a2e8",
     "packages": [
         {
             "name": "afragen/singleton",
@@ -100,12 +100,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/git-updater.git",
-                "reference": "b86d8a6f75f18226e235fc7b3933a49f318f646a"
+                "reference": "274d8939270afca5dda9eb8f3978a55b1534f1d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/git-updater/zipball/b86d8a6f75f18226e235fc7b3933a49f318f646a",
-                "reference": "b86d8a6f75f18226e235fc7b3933a49f318f646a",
+                "url": "https://api.github.com/repos/afragen/git-updater/zipball/274d8939270afca5dda9eb8f3978a55b1534f1d2",
+                "reference": "274d8939270afca5dda9eb8f3978a55b1534f1d2",
                 "shasum": ""
             },
             "require": {
@@ -120,10 +120,7 @@
             "autoload": {
                 "psr-4": {
                     "Fragen\\Git_Updater\\": "src/Git_Updater/"
-                },
-                "files": [
-                    "./vendor/freemius/wordpress-sdk/start.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -154,7 +151,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-14T19:32:30+00:00"
+            "time": "2021-07-04T17:36:40+00:00"
         },
         {
             "name": "afragen/wordpress-plugin-readme-parser",
@@ -357,7 +354,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0"
+        "php": ">=5.6"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"

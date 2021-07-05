@@ -1,5 +1,3 @@
-![Git Updater PRO](./assets/GitHub_Updater_logo_small.png)
-
 # Git Updater PRO
 
 ![WordPress Tests](https://github.com/afragen/git-updater-pro/workflows/WordPress%20Tests/badge.svg)
@@ -7,7 +5,7 @@
 * Contributors: [Andy Fragen](https://github.com/afragen), [contributors](https://github.com/afragen/git-updater-pro/graphs/contributors)
 * Tags: branch switch, remote install, REST API, Webhooks, WP-CLI
 * Requires at least: 5.2
-* Requires PHP: 7.0
+* Requires PHP: 5.6
 * Tested up to: trunk
 * Stable tag: [master](https://github.com/afragen/git-updater-pro/releases/latest)
 * Donate link: <https://thefragens.com/git-updater-donate>
@@ -36,4 +34,4 @@ You can [sponsor me on GitHub](https://github.com/sponsors/afragen) to help with
 
 ## Slack
 
-We now have a [Slack team for Git Updater](https://git-updater.slack.com). Please [click here for an invite](https://github-updater.herokuapp.com). You will be automatically added to the _#general_ and _#support_ channels. Please take a look at other channels too.
+We now have a [Slack team for Git Updater](https://git-updater.slack.com). Please [click here for an invite](https://git-updater.herokuapp.com). You will be automatically added to the _#general_ and _#support_ channels. Please take a look at other channels too.

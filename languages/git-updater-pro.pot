@@ -2,14 +2,14 @@
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: Git Updater PRO 1.1.0\n"
+"Project-Id-Version: Git Updater PRO 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/git-updater-pro\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-06-03T00:34:33+00:00\n"
+"POT-Creation-Date: 2021-07-05T23:45:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: git-updater-pro\n"
@@ -57,59 +57,59 @@ msgstr ""
 msgid "Switch to release "
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:104
-#: src/Git_Updater_PRO/Install.php:318
+#: src/Git_Updater_PRO/Install.php:105
+#: src/Git_Updater_PRO/Install.php:319
 msgid "Install Plugin"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:107
-#: src/Git_Updater_PRO/Install.php:321
+#: src/Git_Updater_PRO/Install.php:108
+#: src/Git_Updater_PRO/Install.php:322
 msgid "Install Theme"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:163
+#: src/Git_Updater_PRO/Install.php:164
 msgid "A repository URI is required."
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:338
+#: src/Git_Updater_PRO/Install.php:339
 msgid "Plugin"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:341
+#: src/Git_Updater_PRO/Install.php:342
 msgid "Theme"
 msgstr ""
 
 #. translators: variable is 'Plugin' or 'Theme'
-#: src/Git_Updater_PRO/Install.php:353
+#: src/Git_Updater_PRO/Install.php:354
 msgid "Git Updater Install %s"
 msgstr ""
 
 #. translators: variable is 'Plugin' or 'Theme'
-#: src/Git_Updater_PRO/Install.php:361
+#: src/Git_Updater_PRO/Install.php:362
 msgid "%s URI"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:369
+#: src/Git_Updater_PRO/Install.php:370
 msgid "Repository Branch"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:377
+#: src/Git_Updater_PRO/Install.php:378
 msgid "Remote Repository Host"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:412
+#: src/Git_Updater_PRO/Install.php:413
 msgid "URI is case sensitive."
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:427
+#: src/Git_Updater_PRO/Install.php:428
 msgid "Enter branch name or leave empty for `master`"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:477
+#: src/Git_Updater_PRO/Install.php:478
 msgid "Activate"
 msgstr ""
 
-#: src/Git_Updater_PRO/Install.php:489
+#: src/Git_Updater_PRO/Install.php:490
 msgctxt "This refers to a network activation in a multisite installation"
 msgid "Network Enable"
 msgstr ""

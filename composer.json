@@ -34,17 +34,15 @@
     "afragen/github-updater": "dev-master"
   },
   "require": {
-    "php": ">=7.0",
+    "php": ">=5.6",
     "afragen/singleton": "dev-master",
     "freemius/wordpress-sdk": "*"
   },
   "autoload": {
     "psr-4": {
-      "Fragen\\Git_Updater\\PRO\\": "src/Git_Updater_PRO/"
-    },
-    "files": [
-      "./vendor/freemius/wordpress-sdk/start.php"
-    ]
+      "Fragen\\Git_Updater\\PRO\\": "src/Git_Updater_PRO/",
+      "Fragen\\Git_Updater\\": "src/Git_Updater"
+    }
   },
   "scripts": {
     "post-update-cmd": [
