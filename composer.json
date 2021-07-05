@@ -40,7 +40,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Fragen\\Git_Updater\\PRO\\": "src/Git_Updater_PRO/"
+      "Fragen\\Git_Updater\\PRO\\": "src/Git_Updater_PRO/",
+      "Fragen\\Git_Updater\\": "src/Git_Updater"
     }
   },
   "scripts": {

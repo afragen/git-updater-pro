@@ -10,6 +10,7 @@ class ComposerStaticInit388fe1ef227f29d2ec552eefda83d5a9
         'F' => 
         array (
             'Fragen\\Git_Updater\\PRO\\' => 23,
+            'Fragen\\Git_Updater\\' => 19,
         ),
     );
 
@@ -17,6 +18,10 @@ class ComposerStaticInit388fe1ef227f29d2ec552eefda83d5a9
         'Fragen\\Git_Updater\\PRO\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Git_Updater_PRO',
+        ),
+        'Fragen\\Git_Updater\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Git_Updater',
         ),
     );
 

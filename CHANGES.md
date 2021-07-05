@@ -1,4 +1,6 @@
 [unreleased]
+
+#### 1.2.0 / 2021-07-05
 * remove Freemius from the autoloader
 * ensure `is_plugin_active()` is available when needed
 * utilize new `class Ignore` from Git Updater
