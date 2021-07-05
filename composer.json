@@ -34,7 +34,7 @@
     "afragen/github-updater": "dev-master"
   },
   "require": {
-    "php": ">=7.0",
+    "php": ">=5.6",
     "afragen/singleton": "dev-master",
     "freemius/wordpress-sdk": "*"
   },

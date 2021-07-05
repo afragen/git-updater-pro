@@ -12,7 +12,7 @@
  * Plugin Name:       Git Updater PRO
  * Plugin URI:        https://github.com/afragen/git-updater-pro
  * Description:       A Git Updater add-on plugin that unlocks PRO features of branch switching, remote installation of plugins and themes, REST API, Webhooks, WP-CLI, and more.
- * Version:           1.1.1.2
+ * Version:           1.1.1.3
  * Author:            Andy Fragen
  * License:           MIT
  * Domain Path:       /languages
@@ -22,7 +22,7 @@
  * GitHub Languages:  https://github.com/afragen/git-updater-pro-translations
  * Primary Branch:    main
  * Requires at least: 5.2
- * Requires PHP:      7.0
+ * Requires PHP:      5.6
  */
 
 namespace Fragen\Git_Updater\PRO;
@@ -52,10 +52,10 @@ if ( ! is_plugin_active( 'git-updater/git-updater.php' )
 	return;
 }
 
-( new GUP_Freemius() )->init();
 add_action(
 	'plugins_loaded',
 	function() {
+		( new GUP_Freemius() )->init();
 		( new Bootstrap() )->run();
 	}
 );

@@ -11,7 +11,6 @@
 namespace Fragen\Git_Updater\PRO;
 
 use Fragen\Singleton;
-use Fragen\Git_Updater\Ignore;
 use Fragen\Git_Updater\Traits\GU_Trait;
 use Fragen\Git_Updater\PRO\REST\REST_API;
 

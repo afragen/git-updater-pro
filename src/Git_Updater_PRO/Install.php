@@ -11,6 +11,7 @@
 namespace Fragen\Git_Updater\PRO;
 
 use Fragen\Singleton;
+use Fragen\Git_Updater\Shim;
 use Fragen\Git_Updater\Traits\GU_Trait;
 use Fragen\Git_Updater\Traits\Basic_Auth_Loader;
 use Fragen\Git_Updater\PRO\WP_CLI\CLI_Plugin_Installer_Skin;
@@ -89,7 +90,7 @@ class Install {
 		add_action(
 			'admin_enqueue_scripts',
 			function () {
-				wp_register_script( 'gu-install', plugins_url( basename( dirname( __DIR__, 2 ) ) . '/js/gu-install-vanilla.js' ), [], $this->get_plugin_version(), true );
+				wp_register_script( 'gu-install', plugins_url( basename( Shim::dirname( __DIR__, 2 ) ) . '/js/gu-install-vanilla.js' ), [], $this->get_plugin_version(), true );
 				wp_enqueue_script( 'gu-install' );
 			}
 		);
