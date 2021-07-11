@@ -321,7 +321,9 @@ class Rest_Update {
 	 */
 	public function process_request_data( $request = null ) {
 		if ( $request instanceof \WP_REST_Request ) {
-			$params = $request->get_params();
+			$params        = $request->get_params();
+			$slug          = $params['plugin'] ?: $params['theme'];
+			$params['tag'] = $params['tag'] ?: $this->get_primary_branch( $slug );
 			extract( $params ); // phpcs:ignore WordPress.PHP.DontExtract.extract_extract
 			$override   = false === $override ? false : true;
 			$deprecated = false;
@@ -365,6 +367,20 @@ class Rest_Update {
 			'master';
 
 		return $current_branch;
+	}
+
+	/**
+	 * Returns the Primary Branch header if set, otherwise 'master'.
+	 *
+	 * @param string $slug Repository slug.
+	 *
+	 * @return string
+	 */
+	private function get_primary_branch( $slug ) {
+		$cache          = $this->get_repo_cache( $slug );
+		$primary_branch = isset( $cache[ $slug ]['PrimaryBranch'] ) ? $cache[ $slug ]['PrimaryBranch'] : 'master';
+
+		return $primary_branch;
 	}
 
 	/**

@@ -1,4 +1,5 @@
 [unreleased]
+* use `Primary Branch` header for default in `REST_Update` if available
 
 #### 1.2.0 / 2021-07-05
 * remove Freemius from the autoloader

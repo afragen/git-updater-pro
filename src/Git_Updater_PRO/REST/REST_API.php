@@ -93,7 +93,7 @@ class REST_API {
 				'validate_callback' => 'sanitize_text_field',
 			],
 			'tag'        => [
-				'default'           => 'master',
+				'default'           => false,
 				'validate_callback' => 'sanitize_text_field',
 			],
 			'branch'     => [
