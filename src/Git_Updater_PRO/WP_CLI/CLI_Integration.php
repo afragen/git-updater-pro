@@ -28,21 +28,6 @@ WP_CLI::add_command( 'theme branch-switch', [ $class, 'branch_switch' ] );
  */
 class CLI_Integration extends WP_CLI_Command {
 	/**
-	 * CLI_Integration constructor.
-	 */
-	public function __construct() {
-		$this->run();
-	}
-
-	/**
-	 * Off to the races.
-	 */
-	public function run() {
-		add_filter( 'site_transient_update_plugins', [ Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this ), 'update_site_transient' ], 10, 1 );
-		add_filter( 'site_transient_update_themes', [ Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this ), 'update_site_transient' ], 10, 1 );
-	}
-
-	/**
 	 * Install plugin from GitHub, Bitbucket, GitLab, Gitea, Gist, or Zipfile using Git Updater PRO. Appropriate API plugin is required.
 	 *
 	 * ## OPTIONS
