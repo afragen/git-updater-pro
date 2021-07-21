@@ -1,4 +1,6 @@
 [unreleased]
+
+#### 1.2.1 / 2021-07-21
 * use `Primary Branch` header for default in `REST_Update` if available
 * load `site_transient` hooks in Git Updater during WP-CLI
 
