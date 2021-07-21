@@ -1,5 +1,6 @@
 [unreleased]
 * use `Primary Branch` header for default in `REST_Update` if available
+* load `site_transient` hooks in Git Updater during WP-CLI
 
 #### 1.2.0 / 2021-07-05
 * remove Freemius from the autoloader
