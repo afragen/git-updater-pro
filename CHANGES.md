@@ -1,5 +1,6 @@
 [unreleased]
 * only use `esc_attr_e` for translating strings
+* un-deprecate `github-updater/v1/update`, issue deprecation message if used
 
 #### 1.2.1 / 2021-07-21
 * use `Primary Branch` header for default in `REST_Update` if available

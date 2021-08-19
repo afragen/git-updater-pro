@@ -153,9 +153,20 @@ class REST_API {
 			'github-updater/v1',
 			'update',
 			[
-				'methods'             => \WP_REST_Server::READABLE,
-				'callback'            => [ $this, 'deprecated' ],
-				'permission_callback' => '__return_true',
+				[
+					'show_in_index'       => false,
+					'methods'             => \WP_REST_Server::READABLE,
+					'callback'            => [ new REST_Update(), 'process_request' ],
+					'permission_callback' => '__return_true',
+					'args'                => $update_args,
+				],
+				[
+					'show_in_index'       => false,
+					'methods'             => \WP_REST_Server::CREATABLE,
+					'callback'            => [ new REST_Update(), 'process_request' ],
+					'permission_callback' => '__return_true',
+					'args'                => $update_args,
+				],
 			]
 		);
 	}
