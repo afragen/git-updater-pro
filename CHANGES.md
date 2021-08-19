@@ -1,4 +1,6 @@
 [unreleased]
+
+#### 1.2.2 / 2021-08-18
 * only use `esc_attr_e` for translating strings
 * un-deprecate `github-updater/v1/update`, issue deprecation message if used
 
