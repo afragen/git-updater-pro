@@ -84,11 +84,11 @@ class Remote_Management {
 		if ( 'git_updater_remote_management' === $tab ) {
 			$action = add_query_arg( 'tab', $tab, $action );
 			$this->admin_page_notices(); ?>
-			<form class="settings" method="post" action="<?php esc_attr_e( $action ); ?>">
+			<form class="settings" method="post" action="<?php echo esc_attr( $action ); ?>">
 				<?php do_settings_sections( 'git_updater_remote_settings' ); ?>
 			</form>
 			<?php $reset_api_action = add_query_arg( [ 'git_updater_reset_api_key' => true ], $action ); ?>
-			<form class="settings no-sub-tabs" method="post" action="<?php esc_attr_e( $reset_api_action ); ?>">
+			<form class="settings no-sub-tabs" method="post" action="<?php echo esc_attr( $reset_api_action ); ?>">
 				<?php submit_button( esc_html__( 'Reset REST API key', 'git-updater-pro' ) ); ?>
 			</form>
 			<?php

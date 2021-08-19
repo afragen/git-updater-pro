@@ -326,7 +326,10 @@ class Rest_Update {
 			$params['tag'] = $params['tag'] ?: $this->get_primary_branch( $slug );
 			extract( $params ); // phpcs:ignore WordPress.PHP.DontExtract.extract_extract
 			$override   = false === $override ? false : true;
-			$deprecated = false;
+			$deprecated = strpos( $request->get_route(), ( new REST_API() )::$namespace ) ? false : true;
+			if ( $deprecated ) {
+				$this->upgrader_skin->feedback( ( new REST_API() )->deprecated()['error'] );
+			}
 		} else { // call from admin-ajax.php.
 			$key        = empty( self::$request['key'] ) ? false : self::$request['key'];
 			$plugin     = empty( self::$request['plugin'] ) ? false : self::$request['plugin'];

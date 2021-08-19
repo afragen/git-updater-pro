@@ -440,7 +440,7 @@ class Install {
 			<select id="git_updater_api" name="git_updater_api">
 				<?php foreach ( self::$git_servers as $key => $value ) : ?>
 					<?php if ( self::$installed_apis[ $key . '_api' ] ) : ?>
-						<option value="<?php esc_attr_e( $key ); ?>" <?php selected( $key ); ?> >
+						<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $key ); ?> >
 							<?php esc_html_e( $value ); ?>
 						</option>
 					<?php endif ?>
