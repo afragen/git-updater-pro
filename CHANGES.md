@@ -1,4 +1,5 @@
 [unreleased]
+* fix for PHP 5.6 compatibility
 
 #### 1.2.2 / 2021-08-18
 * only use `esc_attr_e` for translating strings
