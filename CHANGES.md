@@ -1,4 +1,6 @@
 [unreleased]
+
+#### 1.2.3 / 2021-09-04
 * fix for PHP 5.6 compatibility
 * add error checking to `Branch::set_branch_on_switch()` when directory renamed
 
