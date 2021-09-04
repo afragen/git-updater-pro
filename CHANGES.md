@@ -1,5 +1,6 @@
 [unreleased]
 * fix for PHP 5.6 compatibility
+* add error checking to `Branch::set_branch_on_switch()` when directory renamed
 
 #### 1.2.2 / 2021-08-18
 * only use `esc_attr_e` for translating strings
