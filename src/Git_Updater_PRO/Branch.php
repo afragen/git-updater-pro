@@ -158,9 +158,11 @@ class Branch {
 				? sanitize_text_field( $rollback )
 				: 'master';
 		}
-		$this->set_repo_cache( 'current_branch', $current_branch, $repo );
-		self::$options[ 'current_branch_' . $repo ] = $current_branch;
-		update_site_option( 'git_updater', self::$options );
+		if ( isset( $current_branch ) ) {
+			$this->set_repo_cache( 'current_branch', $current_branch, $repo );
+			self::$options[ 'current_branch_' . $repo ] = $current_branch;
+			update_site_option( 'git_updater', self::$options );
+		}
 	}
 
 	/**
