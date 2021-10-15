@@ -1,4 +1,5 @@
 [unreleased]
+* use `sanitize_title_with_dashes()` as `sanitize_file_name()` maybe have attached filter that changes output
 
 #### 1.2.3 / 2021-09-04
 * fix for PHP 5.6 compatibility
