@@ -184,7 +184,7 @@ class Remote_Management {
 	public function reset_api_key() {
 		// phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( isset( $_REQUEST['tab'], $_REQUEST['git_updater_reset_api_key'] )
-			&& 'git_updater_remote_management' === sanitize_file_name( wp_unslash( $_REQUEST['tab'] ) )
+			&& 'git_updater_remote_management' === sanitize_title_with_dashes( wp_unslash( $_REQUEST['tab'] ) )
 		) {
 			$_POST = $_REQUEST;
 			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
