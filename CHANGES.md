@@ -1,5 +1,6 @@
 [unreleased]
 * use `sanitize_title_with_dashes()` as `sanitize_file_name()` maybe have attached filter that changes output
+* update `class REST_API` with new endpoint `reset-branch` to reset the saved branch of a plugin or theme
 
 #### 1.2.3 / 2021-09-04
 * fix for PHP 5.6 compatibility

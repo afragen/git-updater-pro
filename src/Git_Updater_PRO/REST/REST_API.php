@@ -131,6 +131,24 @@ class REST_API {
 		);
 
 		register_rest_route(
+			self::$namespace,
+			'reset-branch',
+			[
+				'show_in_index'       => false,
+				'methods'             => \WP_REST_Server::READABLE,
+				'callback'            => [ $this, 'reset_branch' ],
+				'permission_callback' => '__return_true',
+				'args'                => [
+					'key' => [
+						'default'           => null,
+						'required'          => true,
+						'validate_callback' => 'sanitize_text_field',
+					],
+				],
+			]
+		);
+
+		register_rest_route(
 			'github-updater/v1',
 			'test',
 			[
@@ -254,5 +272,30 @@ class REST_API {
 		];
 
 		return $json;
+	}
+
+	/**
+	 * Reset branch of plugin/theme by removing from saved options.
+	 *
+	 * @param \WP_REST_Request $request REST API response.
+	 *
+	 * @return array
+	 */
+	public function reset_branch( \WP_REST_Request $request ) {
+		// Test for API key and exit if incorrect.
+		if ( $this->get_class_vars( 'Remote_Management', 'api_key' ) !== $request->get_param( 'key' ) ) {
+			return [ 'error' => 'Bad API key. No branch reset for you.' ];
+		}
+		$plugin_slug = $request->get_param( 'plugin' );
+		$theme_slug  = $request->get_param( 'theme' );
+		if ( empty( $plugin_slug ) && empty( $theme_slug ) ) {
+			return [ 'error' => 'No plugin or theme specified for branch reset.' ];
+		}
+		$slug    = ! empty( $plugin_slug ) ? $plugin_slug : $theme_slug;
+		$options = $this->get_class_vars( 'Base', 'options' );
+		unset( $options[ "current_branch_$slug" ] );
+		update_site_option( 'git_updater', $options );
+
+		return [ 'success' => esc_html( "$slug branch has been reset." ) ];
 	}
 }
