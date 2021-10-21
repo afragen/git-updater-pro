@@ -422,7 +422,7 @@ class Rest_Update {
 	 * @param array $response Response array.
 	 * @param int   $code     Response code.
 	 */
-	private function log_exit( $response, $code ) {
+	public function log_exit( $response, $code ) {
 		$json_encode_flags = 128 | 64;
 
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log

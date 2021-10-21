@@ -279,23 +279,43 @@ class REST_API {
 	 *
 	 * @param \WP_REST_Request $request REST API response.
 	 *
-	 * @return array
+	 * @return void
 	 */
 	public function reset_branch( \WP_REST_Request $request ) {
+		$rest_update = new Rest_Update();
+
 		// Test for API key and exit if incorrect.
 		if ( $this->get_class_vars( 'Remote_Management', 'api_key' ) !== $request->get_param( 'key' ) ) {
-			return [ 'error' => 'Bad API key. No branch reset for you.' ];
+			$response = [
+				'success'  => false,
+				'messages' => 'Bad API key. No branch reset for you.',
+				'webhook'  => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
+			];
+			$rest_update->log_exit( $response, 417 );
 		}
+
 		$plugin_slug = $request->get_param( 'plugin' );
 		$theme_slug  = $request->get_param( 'theme' );
-		if ( empty( $plugin_slug ) && empty( $theme_slug ) ) {
-			return [ 'error' => 'No plugin or theme specified for branch reset.' ];
+		$options     = $this->get_class_vars( 'Base', 'options' );
+		$slug        = ! empty( $plugin_slug ) ? $plugin_slug : $theme_slug;
+
+		if ( empty( $plugin_slug ) && empty( $theme_slug ) || ! isset( $options[ $slug ] ) ) {
+			$response = [
+				'success'  => false,
+				'messages' => 'No plugin or theme specified for branch reset.',
+				'webhook'  => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
+			];
+			$rest_update->log_exit( $response, 417 );
 		}
-		$slug    = ! empty( $plugin_slug ) ? $plugin_slug : $theme_slug;
-		$options = $this->get_class_vars( 'Base', 'options' );
+
 		unset( $options[ "current_branch_$slug" ] );
 		update_site_option( 'git_updater', $options );
 
-		return [ 'success' => esc_html( "$slug branch has been reset." ) ];
+		$response = [
+			'success'  => true,
+			'messages' => esc_html( "$slug branch has been reset." ),
+			'webhook'  => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
+		];
+		$rest_update->log_exit( $response, 200 );
 	}
 }
