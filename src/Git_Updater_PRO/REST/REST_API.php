@@ -43,6 +43,7 @@ class REST_API {
 			self::$namespace,
 			'test',
 			[
+				'show_in_index'       => true,
 				'methods'             => \WP_REST_Server::READABLE,
 				'callback'            => [ $this, 'test' ],
 				'permission_callback' => '__return_true',
@@ -114,7 +115,7 @@ class REST_API {
 			'update',
 			[
 				[
-					'show_in_index'       => false,
+					'show_in_index'       => true,
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ new REST_Update(), 'process_request' ],
 					'permission_callback' => '__return_true',
@@ -134,14 +135,22 @@ class REST_API {
 			self::$namespace,
 			'reset-branch',
 			[
-				'show_in_index'       => false,
+				'show_in_index'       => true,
 				'methods'             => \WP_REST_Server::READABLE,
 				'callback'            => [ $this, 'reset_branch' ],
 				'permission_callback' => '__return_true',
 				'args'                => [
-					'key' => [
+					'key'    => [
 						'default'           => null,
 						'required'          => true,
+						'validate_callback' => 'sanitize_text_field',
+					],
+					'plugin' => [
+						'default'           => false,
+						'validate_callback' => 'sanitize_text_field',
+					],
+					'theme'  => [
+						'default'           => false,
 						'validate_callback' => 'sanitize_text_field',
 					],
 				],
