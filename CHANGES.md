@@ -1,5 +1,6 @@
 [unreleased]
 * update REST API routes
+* update `Remote Management` tab information
 
 #### 1.3.3 / 2021-10-22
 * more efficient removal of `current_branch` from cache
