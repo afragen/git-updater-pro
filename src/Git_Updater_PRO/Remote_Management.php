@@ -139,7 +139,7 @@ class Remote_Management {
 		);
 		$branch_reset_endpoint = add_query_arg(
 			[ 'key' => self::$api_key ],
-			home_url( 'wp-json/' . $this->get_class_vars( 'REST\REST_API', 'namespace' ) . '/branch-reset/' )
+			home_url( 'wp-json/' . $this->get_class_vars( 'REST\REST_API', 'namespace' ) . '/reset-branch/' )
 		);
 
 		echo '<p>';
