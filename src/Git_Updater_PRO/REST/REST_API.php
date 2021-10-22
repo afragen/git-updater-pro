@@ -300,7 +300,9 @@ class REST_API {
 				throw new \UnexpectedValueException( 'No plugin or theme specified for branch reset.' );
 			}
 
-			unset( $options[ "current_branch_$slug" ] );
+			$cache = $this->get_repo_cache( $slug );
+			unset( $options[ "current_branch_$slug" ], $cache['current_branch'] );
+			$this->set_repo_cache( $slug, $cache, $slug );
 			update_site_option( 'git_updater', $options );
 
 			$response = [
