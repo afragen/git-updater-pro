@@ -1,5 +1,8 @@
 [unreleased]
 
+#### 1.3.3 / 2021-10-22
+* more efficient removal of `current_branch` from cache
+
 #### 1.3.2 / 2021-10-22
 * use `try/catch` and `UnexpectedValueException` for error messaging in `reset-branch`
 * correctly remove `current_branch` from cache for `reset-branch` REST endpoint
