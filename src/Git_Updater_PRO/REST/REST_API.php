@@ -284,6 +284,7 @@ class REST_API {
 	 */
 	public function reset_branch( \WP_REST_Request $request ) {
 		$rest_update = new Rest_Update();
+		$start       = microtime( true );
 
 		try {
 			// Test for API key and exit if incorrect.
@@ -305,17 +306,19 @@ class REST_API {
 			update_site_option( 'git_updater', $options );
 
 			$response = [
-				'success'  => true,
-				'messages' => 'Reset to primary branch complete.',
-				'webhook'  => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
+				'success'      => true,
+				'messages'     => 'Reset to primary branch complete.',
+				'webhook'      => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
+				'elapsed_time' => round( ( microtime( true ) - $start ) * 1000, 2 ) . ' ms',
 			];
 			$rest_update->log_exit( $response, 200 );
 
 		} catch ( \Exception $e ) {
 			$response = [
-				'success'  => false,
-				'messages' => $e->getMessage(),
-				'webhook'  => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
+				'success'      => false,
+				'messages'     => $e->getMessage(),
+				'webhook'      => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
+				'elapsed_time' => round( ( microtime( true ) - $start ) * 1000, 2 ) . ' ms',
 			];
 			$rest_update->log_exit( $response, 417 );
 		}
