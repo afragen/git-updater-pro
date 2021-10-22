@@ -1,4 +1,5 @@
 [unreleased]
+* use `try/catch` and `UnexpectedValueException` for error messaging in `reset-branch`
 
 #### 1.3.1 / 2021-10-21
 * use `Rest_Update::log_exit()` for better messaging with `reset-branch` REST endpoint
