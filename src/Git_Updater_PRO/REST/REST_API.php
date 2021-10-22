@@ -306,7 +306,7 @@ class REST_API {
 
 			$response = [
 				'success'  => true,
-				'messages' => esc_html( "$slug branch has been reset." ),
+				'messages' => 'Reset to primary branch complete.',
 				'webhook'  => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
 			];
 			$rest_update->log_exit( $response, 200 );
