@@ -1,5 +1,9 @@
 [unreleased]
 
+#### 1.3.2 / 2021-10-22
+* use `try/catch` and `UnexpectedValueException` for error messaging in `reset-branch`
+* correctly remove `current_branch` from cache for `reset-branch` REST endpoint
+
 #### 1.3.1 / 2021-10-21
 * use `Rest_Update::log_exit()` for better messaging with `reset-branch` REST endpoint
 
