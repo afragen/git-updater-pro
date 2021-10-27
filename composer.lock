@@ -100,19 +100,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/git-updater.git",
-                "reference": "f80ab9570b6f4b5e6ff72a59fa83f4724d1d75e7"
+                "reference": "ac0b2a85d881e5dfa344d1182fb279f0950ba3eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/git-updater/zipball/f80ab9570b6f4b5e6ff72a59fa83f4724d1d75e7",
-                "reference": "f80ab9570b6f4b5e6ff72a59fa83f4724d1d75e7",
+                "url": "https://api.github.com/repos/afragen/git-updater/zipball/ac0b2a85d881e5dfa344d1182fb279f0950ba3eb",
+                "reference": "ac0b2a85d881e5dfa344d1182fb279f0950ba3eb",
                 "shasum": ""
             },
             "require": {
                 "afragen/singleton": "dev-master",
                 "afragen/wordpress-plugin-readme-parser": "dev-master",
                 "afragen/wp-dependency-installer": "^4",
-                "afragen/wp-dismiss-notice": "^0.2",
                 "freemius/wordpress-sdk": "*",
                 "php": ">=5.6"
             },
@@ -151,7 +150,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-24T20:17:58+00:00"
+            "time": "2021-10-21T23:05:59+00:00"
         },
         {
             "name": "afragen/wordpress-plugin-readme-parser",

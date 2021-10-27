@@ -43,6 +43,7 @@ class REST_API {
 			self::$namespace,
 			'test',
 			[
+				'show_in_index'       => true,
 				'methods'             => \WP_REST_Server::READABLE,
 				'callback'            => [ $this, 'test' ],
 				'permission_callback' => '__return_true',
@@ -114,7 +115,7 @@ class REST_API {
 			'update',
 			[
 				[
-					'show_in_index'       => false,
+					'show_in_index'       => true,
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ new REST_Update(), 'process_request' ],
 					'permission_callback' => '__return_true',
@@ -134,14 +135,22 @@ class REST_API {
 			self::$namespace,
 			'reset-branch',
 			[
-				'show_in_index'       => false,
+				'show_in_index'       => true,
 				'methods'             => \WP_REST_Server::READABLE,
 				'callback'            => [ $this, 'reset_branch' ],
 				'permission_callback' => '__return_true',
 				'args'                => [
-					'key' => [
+					'key'    => [
 						'default'           => null,
 						'required'          => true,
+						'validate_callback' => 'sanitize_text_field',
+					],
+					'plugin' => [
+						'default'           => false,
+						'validate_callback' => 'sanitize_text_field',
+					],
+					'theme'  => [
+						'default'           => false,
 						'validate_callback' => 'sanitize_text_field',
 					],
 				],
@@ -284,6 +293,7 @@ class REST_API {
 	 */
 	public function reset_branch( \WP_REST_Request $request ) {
 		$rest_update = new Rest_Update();
+		$start       = microtime( true );
 
 		try {
 			// Test for API key and exit if incorrect.
@@ -305,17 +315,19 @@ class REST_API {
 			update_site_option( 'git_updater', $options );
 
 			$response = [
-				'success'  => true,
-				'messages' => esc_html( "$slug branch has been reset." ),
-				'webhook'  => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
+				'success'      => true,
+				'messages'     => 'Reset to primary branch complete.',
+				'webhook'      => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
+				'elapsed_time' => round( ( microtime( true ) - $start ) * 1000, 2 ) . ' ms',
 			];
 			$rest_update->log_exit( $response, 200 );
 
 		} catch ( \Exception $e ) {
 			$response = [
-				'success'  => false,
-				'messages' => $e->getMessage(),
-				'webhook'  => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
+				'success'      => false,
+				'messages'     => $e->getMessage(),
+				'webhook'      => $_GET, // phpcs:ignore WordPress.Security.NonceVerification
+				'elapsed_time' => round( ( microtime( true ) - $start ) * 1000, 2 ) . ' ms',
 			];
 			$rest_update->log_exit( $response, 417 );
 		}

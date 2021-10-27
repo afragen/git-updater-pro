@@ -2,14 +2,14 @@
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: Git Updater PRO 1.3.0\n"
+"Project-Id-Version: Git Updater PRO 1.3.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/git-updater-pro\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-10-21T19:51:22+00:00\n"
+"POT-Creation-Date: 2021-10-27T17:56:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: git-updater-pro\n"
@@ -127,21 +127,31 @@ msgstr ""
 msgid "REST API key reset."
 msgstr ""
 
-#: src/Git_Updater_PRO/Remote_Management.php:142
+#: src/Git_Updater_PRO/Remote_Management.php:146
 msgid "Remote Management services should just work for plugins like MainWP, ManageWP, InfiniteWP, iThemes Sync and others."
 msgstr ""
 
 #. translators: %s: Link to Git Remote Updater repository
-#: src/Git_Updater_PRO/Remote_Management.php:149
+#: src/Git_Updater_PRO/Remote_Management.php:153
 msgid "The <a href=\"%s\">Git Remote Updater</a> plugin was specifically created to make the remote management of Git Updater supported plugins and themes much simpler. You will need the Site URL and REST API key to use with Git Remote Updater settings."
 msgstr ""
 
 #. translators: 1: home URL, 2: REST API key
-#: src/Git_Updater_PRO/Remote_Management.php:159
+#: src/Git_Updater_PRO/Remote_Management.php:163
 msgid "Site URL: %1$s<br> REST API key: %2$s"
 msgstr ""
 
 #. translators: 1: Link to wiki, 2: RESTful API URL
-#: src/Git_Updater_PRO/Remote_Management.php:170
-msgid "Please refer to the <a href=\"%1$s\">wiki</a> for complete list of attributes. REST API endpoints for webhook updating begin at: %2$s"
+#: src/Git_Updater_PRO/Remote_Management.php:174
+msgid "Please refer to the <a href=\"%s\">Git Updater Knowledge Base</a> for complete list of attributes."
+msgstr ""
+
+#. translators: link to REST API endpoint for updating
+#: src/Git_Updater_PRO/Remote_Management.php:184
+msgid "REST API endpoints for webhook updating begin at: %s"
+msgstr ""
+
+#. translators: link to REST API endpoint for branch resetting
+#: src/Git_Updater_PRO/Remote_Management.php:194
+msgid "REST API endpoints for webhook branch resetting begin at: %s"
 msgstr ""
