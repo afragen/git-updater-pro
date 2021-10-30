@@ -1,4 +1,5 @@
 [unreleased]
+* remove errant comma
 
 #### 1.3.4 / 2021-10-27
 * update REST API routes

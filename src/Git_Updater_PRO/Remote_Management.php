@@ -173,7 +173,7 @@ class Remote_Management {
 				/* translators: 1: Link to wiki, 2: RESTful API URL */
 				__( 'Please refer to the <a href="%s">Git Updater Knowledge Base</a> for complete list of attributes.', 'git-updater-pro' )
 			),
-			'https://git-updater.com/knowledge-base/remote-management-restful-endpoints/',
+			'https://git-updater.com/knowledge-base/remote-management-restful-endpoints/'
 		);
 		echo '</p>';
 
