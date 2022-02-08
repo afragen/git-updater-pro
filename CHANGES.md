@@ -1,5 +1,8 @@
 [unreleased]
+
+#### 1.3.5 / 2022-02-07
 * remove errant comma
+* update GitHub Action
 
 #### 1.3.4 / 2021-10-27
 * update REST API routes
