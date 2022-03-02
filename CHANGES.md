@@ -1,5 +1,8 @@
 [unreleased]
 
+#### 1.3.6 / 2022-03-02
+* update Freemius/wordpress-sdk
+
 #### 1.3.5 / 2022-02-07
 * remove errant comma
 * update GitHub Action
