@@ -55,16 +55,16 @@
         },
         {
             "name": "freemius/wordpress-sdk",
-            "version": "2.4.2",
+            "version": "2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Freemius/wordpress-sdk.git",
-                "reference": "84a9be4717effd7697a217e0d931f48ae0d2ecc6"
+                "reference": "d2c3e1c27792f34123f928ea9fa73be56c337d13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/84a9be4717effd7697a217e0d931f48ae0d2ecc6",
-                "reference": "84a9be4717effd7697a217e0d931f48ae0d2ecc6",
+                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/d2c3e1c27792f34123f928ea9fa73be56c337d13",
+                "reference": "d2c3e1c27792f34123f928ea9fa73be56c337d13",
                 "shasum": ""
             },
             "require": {
@@ -88,9 +88,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Freemius/wordpress-sdk/issues",
-                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.4.2"
+                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.4.3"
             },
-            "time": "2021-02-08T16:47:44+00:00"
+            "time": "2022-03-03T09:14:17+00:00"
         }
     ],
     "packages-dev": [
@@ -100,12 +100,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/git-updater.git",
-                "reference": "2523a2eabb18ee0d0dc5de0715b7c3e00217f381"
+                "reference": "8f0d9e5517d037f62823d093d69c01e4acf1e1ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/git-updater/zipball/2523a2eabb18ee0d0dc5de0715b7c3e00217f381",
-                "reference": "2523a2eabb18ee0d0dc5de0715b7c3e00217f381",
+                "url": "https://api.github.com/repos/afragen/git-updater/zipball/8f0d9e5517d037f62823d093d69c01e4acf1e1ae",
+                "reference": "8f0d9e5517d037f62823d093d69c01e4acf1e1ae",
                 "shasum": ""
             },
             "require": {
@@ -150,7 +150,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-14T20:53:23+00:00"
+            "time": "2022-03-02T18:22:22+00:00"
         },
         {
             "name": "afragen/wordpress-plugin-readme-parser",
@@ -201,16 +201,16 @@
         },
         {
             "name": "afragen/wp-dependency-installer",
-            "version": "4.3.0",
+            "version": "4.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/wp-dependency-installer.git",
-                "reference": "5c14a929387b9ff266c66291aae23546134a9bdf"
+                "reference": "d13c7f2caab8781758c46ebef508953ce98259db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/5c14a929387b9ff266c66291aae23546134a9bdf",
-                "reference": "5c14a929387b9ff266c66291aae23546134a9bdf",
+                "url": "https://api.github.com/repos/afragen/wp-dependency-installer/zipball/d13c7f2caab8781758c46ebef508953ce98259db",
+                "reference": "d13c7f2caab8781758c46ebef508953ce98259db",
                 "shasum": ""
             },
             "require": {
@@ -257,7 +257,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-18T21:30:20+00:00"
+            "time": "2022-02-08T22:15:57+00:00"
         },
         {
             "name": "afragen/wp-dismiss-notice",
