@@ -81,11 +81,11 @@ class REST_API {
 
 		register_rest_route(
 			self::$namespace,
-			'update-package',
+			'plugins-api',
 			[
 				'show_in_index'       => false,
 				'methods'             => \WP_REST_Server::READABLE,
-				'callback'            => [ $this, 'get_repo_update_data' ],
+				'callback'            => [ $this, 'get_plugins_api_data' ],
 				'permission_callback' => '__return_true',
 				'args'                => [
 					'repo' => [
@@ -307,7 +307,7 @@ class REST_API {
 	 *
 	 * @return array
 	 */
-	public function get_repo_update_data( \WP_REST_Request $request ) {
+	public function get_plugins_api_data( \WP_REST_Request $request ) {
 		$gu_plugins = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
 		$gu_themes  = Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this )->get_theme_configs();
 		$gu_tokens  = array_merge( $gu_plugins, $gu_themes );
