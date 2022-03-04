@@ -313,7 +313,7 @@ class REST_API {
 		$gu_tokens  = array_merge( $gu_plugins, $gu_themes );
 
 		$slug = $request->get_param( 'repo' );
-		if ( array_key_exists( $request->get_param( 'repo' ), $gu_tokens ) ) {
+		if ( array_key_exists( $slug, $gu_tokens ) ) {
 			$repo_data = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_remote_repo_meta( $gu_tokens[ $slug ] );
 
 			$update_package = [
