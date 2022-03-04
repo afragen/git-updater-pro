@@ -315,6 +315,10 @@ class REST_API {
 		if ( array_key_exists( $slug, $gu_plugins ) ) {
 			$repo_data = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_remote_repo_meta( $gu_plugins[ $slug ] );
 
+			if ( ! property_exists( $repo_data, 'slug' ) ) {
+				return $plugins_api_data;
+			}
+
 			$plugins_api_data = [
 				'name'              => $repo_data->name,
 				'slug'              => $repo_data->slug,
