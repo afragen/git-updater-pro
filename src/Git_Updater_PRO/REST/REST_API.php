@@ -79,6 +79,23 @@ class REST_API {
 			]
 		);
 
+		register_rest_route(
+			self::$namespace,
+			'update-package',
+			[
+				'show_in_index'       => false,
+				'methods'             => \WP_REST_Server::READABLE,
+				'callback'            => [ $this, 'get_repo_update_data' ],
+				'permission_callback' => '__return_true',
+				'args'                => [
+					'repo' => [
+						'default'           => false,
+						'validate_callback' => 'sanitize_text_field',
+					],
+				],
+			]
+		);
+
 		$update_args = [
 			'key'        => [
 				'default'           => false,
@@ -281,6 +298,50 @@ class REST_API {
 		];
 
 		return $json;
+	}
+
+	/**
+	 * Get specific repo plugin API data.
+	 *
+	 * @param \WP_REST_Request $request REST API response.
+	 *
+	 * @return array
+	 */
+	public function get_repo_update_data( \WP_REST_Request $request ) {
+		$gu_plugins = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
+		$gu_themes  = Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this )->get_theme_configs();
+		$gu_tokens  = array_merge( $gu_plugins, $gu_themes );
+
+		$slug = $request->get_param( 'repo' );
+		if ( array_key_exists( $request->get_param( 'repo' ), $gu_tokens ) ) {
+			$repo_data = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_remote_repo_meta( $gu_tokens[ $slug ] );
+
+			$update_package = [
+				'name'              => $repo_data->name,
+				'slug'              => $repo_data->slug,
+				'type'              => $repo_data->type,
+				'version'           => $repo_data->remote_version,
+				'author'            => $repo_data->author,
+				'contributors'      => $repo_data->contributors,
+				'requires'          => $repo_data->requires,
+				'tested'            => $repo_data->tested,
+				'requires_php'      => $repo_data->requires_php,
+				'sections'          => $repo_data->sections,
+				// phpcs:ignore WordPress.WP.AlternativeFunctions.strip_tags_strip_tags
+				'short_description' => substr( strip_tags( trim( $repo_data->sections['description'] ) ), 0, 200 ),
+				'primary_branch'    => $repo_data->primary_branch,
+				'branch'            => $repo_data->branch,
+				'download_link'     => $repo_data->download_link,
+				'banners'           => $repo_data->banners,
+				'icons'             => $repo_data->icons,
+				'last_updated'      => $repo_data->last_updated,
+				'num_ratings'       => $repo_data->num_ratings,
+				'rating'            => $repo_data->rating,
+				'active_installs'   => $repo_data->downloaded,
+			];
+		}
+
+		return $update_package;
 	}
 
 	/**
