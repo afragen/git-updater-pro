@@ -308,15 +308,14 @@ class REST_API {
 	 * @return array
 	 */
 	public function get_plugins_api_data( \WP_REST_Request $request ) {
-		$gu_plugins = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
-		$gu_themes  = Singleton::get_instance( 'Fragen\Git_Updater\Theme', $this )->get_theme_configs();
-		$gu_tokens  = array_merge( $gu_plugins, $gu_themes );
+		$slug             = $request->get_param( 'repo' );
+		$plugins_api_data = [ 'error' => "The plugin slug, {$slug}, does not exist." ];
+		$gu_plugins       = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
 
-		$slug = $request->get_param( 'repo' );
-		if ( array_key_exists( $slug, $gu_tokens ) ) {
-			$repo_data = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_remote_repo_meta( $gu_tokens[ $slug ] );
+		if ( array_key_exists( $slug, $gu_plugins ) ) {
+			$repo_data = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_remote_repo_meta( $gu_plugins[ $slug ] );
 
-			$update_package = [
+			$plugins_api_data = [
 				'name'              => $repo_data->name,
 				'slug'              => $repo_data->slug,
 				'type'              => $repo_data->type,
@@ -341,7 +340,7 @@ class REST_API {
 			];
 		}
 
-		return $update_package;
+		return $plugins_api_data;
 	}
 
 	/**
