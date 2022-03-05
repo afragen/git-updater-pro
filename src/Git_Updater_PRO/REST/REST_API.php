@@ -315,13 +315,13 @@ class REST_API {
 		$gu_plugins = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
 
 		if ( ! \array_key_exists( $slug, $gu_plugins ) ) {
-			return new \WP_Error( 'no_plugin', 'Specified plugin does not exist.' );
+			return [ 'error' => 'Specified plugin does not exist.' ];
 		}
 
 		$repo_data = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_remote_repo_meta( $gu_plugins[ $slug ] );
 
-		if ( ! property_exists( $repo_data, 'slug' ) ) {
-			return new \WP_Error( 'bad_data', 'Plugin data is incomplete.' );
+		if ( ! is_object( $repo_data ) ) {
+			return [ 'error' => 'Plugin data response is incorrect.' ];
 		}
 
 		$plugins_api_data = [
