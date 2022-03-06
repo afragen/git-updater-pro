@@ -312,6 +312,7 @@ class REST_API {
 	 */
 	public function get_plugins_api_data( \WP_REST_Request $request ) {
 		$slug       = $request->get_param( 'slug' );
+		$repo_cache = $this->get_repo_cache( $slug );
 		$gu_plugins = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
 
 		if ( ! \array_key_exists( $slug, $gu_plugins ) ) {
@@ -349,8 +350,8 @@ class REST_API {
 			'active_installs'   => $repo_data->downloaded,
 		];
 
-		if ( ! $repo_data->download_link && $repo_data->newest_tag ) {
-			$plugins_api_data['download_link'] = $repo_data->rollback[ $repo_data->newest_tag ];
+		if ( ! $repo_data->download_link && $repo_cache['release_asset'] ) {
+			$plugins_api_data['download_link'] = $repo_cache['release_asset'];
 		}
 
 		return $plugins_api_data;
