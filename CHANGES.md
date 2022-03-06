@@ -1,4 +1,5 @@
 [unreleased]
+* fix PHP warnings in REST route if certain data not set
 
 #### 1.4.0 / 2022-03-06
 * add REST route to return `plugins_api()` like data for any installed plugin
