@@ -324,7 +324,17 @@ class REST_API {
 			return [ 'error' => 'Plugin data response is incorrect.' ];
 		}
 
-		$plugins_api_data = [
+		$nonced_update_url = wp_nonce_url(
+			Singleton::get_instance( 'Base', $this )->get_update_url( 'plugin', 'install-plugin', $slug ),
+			'install-plugin_' . $repo_data->file
+		);
+		$download_link     = sprintf(
+			'<a class="install-now button" href="%s%s" aria-label="' . esc_html__( 'Install plugin dependency', 'git-updater-pro' ) . esc_attr( $repo_data->newest_tag ) . '">%s</a>',
+			esc_url( $nonced_update_url ),
+			'&rollback=' . rawurlencode( $repo_data->newest_tag ),
+			esc_attr( 'Install Now' )
+		);
+		$plugins_api_data  = [
 			'name'              => $repo_data->name,
 			'slug'              => $repo_data->slug,
 			'type'              => $repo_data->type,
@@ -339,7 +349,7 @@ class REST_API {
 			'short_description' => substr( strip_tags( trim( $repo_data->sections['description'] ) ), 0, 175 ) . '...',
 			'primary_branch'    => $repo_data->primary_branch,
 			'branch'            => $repo_data->branch,
-			'download_link'     => $repo_data->download_link,
+			'download_link'     => $download_link,
 			'banners'           => $repo_data->banners,
 			'icons'             => $repo_data->icons,
 			'last_updated'      => $repo_data->last_updated,
@@ -347,11 +357,6 @@ class REST_API {
 			'rating'            => $repo_data->rating,
 			'active_installs'   => $repo_data->downloaded,
 		];
-
-		// If release asset download link is false, set to latest tag.
-		if ( ! $plugins_api_data['download_link'] && ! empty( $repo_data->newest_tag ) ) {
-			$plugins_api_data['download_link'] = $repo_data->rollback[ $repo_data->newest_tag ];
-		}
 
 		return $plugins_api_data;
 	}
