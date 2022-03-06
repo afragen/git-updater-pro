@@ -351,7 +351,7 @@ class REST_API {
 			'active_installs'   => $repo_data->downloaded,
 		];
 
-		if ( ! $repo_data->download_link && is_object( $repo_cache['release_asset_response'] ) ) {
+		if ( ! $repo_data->download_link && isset( $repo_cache['release_asset_response'] ) ) {
 			$plugins_api_data['download_link']   = $repo_cache['release_asset_response']->browser_download_url;
 			$plugins_api_data['active_installs'] = $repo_cache['release_asset_response']->download_count;
 		}
