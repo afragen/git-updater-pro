@@ -324,7 +324,7 @@ class REST_API {
 			return [ 'error' => 'Plugin data response is incorrect.' ];
 		}
 
-		$nonced_update_url = wp_nonce_url(
+/* 		$nonced_update_url = wp_nonce_url(
 			Singleton::get_instance( 'Base', $this )->get_update_url( 'plugin', 'install-plugin', $slug ),
 			'install-plugin_' . $repo_data->file
 		);
@@ -334,9 +334,11 @@ class REST_API {
 			'&rollback=' . rawurlencode( $repo_data->newest_tag ),
 			esc_attr( 'Install Now' )
 		);
+ */
 		$plugins_api_data  = [
 			'name'              => $repo_data->name,
 			'slug'              => $repo_data->slug,
+			'git' => $repo_data->git,
 			'type'              => $repo_data->type,
 			'version'           => $repo_data->remote_version,
 			'author'            => $repo_data->author,
@@ -349,7 +351,7 @@ class REST_API {
 			'short_description' => substr( strip_tags( trim( $repo_data->sections['description'] ) ), 0, 175 ) . '...',
 			'primary_branch'    => $repo_data->primary_branch,
 			'branch'            => $repo_data->branch,
-			'download_link'     => $download_link,
+			'download_link'     => $repo_data->download_link,
 			'banners'           => $repo_data->banners,
 			'icons'             => $repo_data->icons,
 			'last_updated'      => $repo_data->last_updated,
@@ -357,6 +359,19 @@ class REST_API {
 			'rating'            => $repo_data->rating,
 			'active_installs'   => $repo_data->downloaded,
 		];
+
+		if ( ! $repo_data->download_link && $repo_data->newest_tag){
+			$plugins_api_data['download_link'] = $repo_data->rollback[$repo_data->newest_tag];
+		}
+
+		$install_config = [
+			$repo_data->git => 'git',
+			'branch' => $repo_data->primary_branch,
+			'zipfile' => 'uri_type',
+	'slug' => $repo_data->slug,
+		];
+
+		$plugins_api_data['install_config'] = $install_config;
 
 		return $plugins_api_data;
 	}
