@@ -5,7 +5,7 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '3d3ff1bde3c2c2dc589478ef0bcdd8c8b6ec1000',
+        'reference' => '9500232738371e9726b3b48a1f613648c3df28f5',
         'name' => 'afragen/git-updater-pro',
         'dev' => false,
     ),
@@ -16,7 +16,7 @@
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '3d3ff1bde3c2c2dc589478ef0bcdd8c8b6ec1000',
+            'reference' => '9500232738371e9726b3b48a1f613648c3df28f5',
             'dev_requirement' => false,
         ),
         'afragen/singleton' => array(
