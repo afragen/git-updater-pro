@@ -348,6 +348,11 @@ class REST_API {
 			'active_installs'   => $repo_data->downloaded,
 		];
 
+		// If release asset download link is false, set to latest tag.
+		if ( ! $plugins_api_data['download_link'] && ! empty( $repo_data->newest_tag ) ) {
+			$plugins_api_data['download_link'] = $repo_data->rollback[ $repo_data->newest_tag ];
+		}
+
 		return $plugins_api_data;
 	}
 
