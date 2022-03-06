@@ -324,21 +324,10 @@ class REST_API {
 			return [ 'error' => 'Plugin data response is incorrect.' ];
 		}
 
-/* 		$nonced_update_url = wp_nonce_url(
-			Singleton::get_instance( 'Base', $this )->get_update_url( 'plugin', 'install-plugin', $slug ),
-			'install-plugin_' . $repo_data->file
-		);
-		$download_link     = sprintf(
-			'<a class="install-now button" href="%s%s" aria-label="' . esc_html__( 'Install plugin dependency', 'git-updater-pro' ) . esc_attr( $repo_data->newest_tag ) . '">%s</a>',
-			esc_url( $nonced_update_url ),
-			'&rollback=' . rawurlencode( $repo_data->newest_tag ),
-			esc_attr( 'Install Now' )
-		);
- */
-		$plugins_api_data  = [
+		$plugins_api_data = [
 			'name'              => $repo_data->name,
 			'slug'              => $repo_data->slug,
-			'git' => $repo_data->git,
+			'git'               => $repo_data->git,
 			'type'              => $repo_data->type,
 			'version'           => $repo_data->remote_version,
 			'author'            => $repo_data->author,
@@ -360,18 +349,9 @@ class REST_API {
 			'active_installs'   => $repo_data->downloaded,
 		];
 
-		if ( ! $repo_data->download_link && $repo_data->newest_tag){
-			$plugins_api_data['download_link'] = $repo_data->rollback[$repo_data->newest_tag];
+		if ( ! $repo_data->download_link && $repo_data->newest_tag ) {
+			$plugins_api_data['download_link'] = $repo_data->rollback[ $repo_data->newest_tag ];
 		}
-
-		$install_config = [
-			$repo_data->git => 'git',
-			'branch' => $repo_data->primary_branch,
-			'zipfile' => 'uri_type',
-	'slug' => $repo_data->slug,
-		];
-
-		$plugins_api_data['install_config'] = $install_config;
 
 		return $plugins_api_data;
 	}
