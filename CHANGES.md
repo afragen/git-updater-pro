@@ -1,5 +1,8 @@
 [unreleased]
 
+#### 1.4.0 / 2022-03-06
+* add REST route to return `plugins_api()` like data for any installed plugin
+
 #### 1.3.6 / 2022-03-02
 * update Freemius/wordpress-sdk
 

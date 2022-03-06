@@ -79,6 +79,24 @@ class REST_API {
 			]
 		);
 
+		register_rest_route(
+			self::$namespace,
+			'plugins-api',
+			[
+				'show_in_index'       => true,
+				'methods'             => \WP_REST_Server::READABLE,
+				'callback'            => [ $this, 'get_plugins_api_data' ],
+				'permission_callback' => '__return_true',
+				'args'                => [
+					'slug' => [
+						'default'           => false,
+						'required'          => true,
+						'validate_callback' => 'sanitize_text_field',
+					],
+				],
+			]
+		);
+
 		$update_args = [
 			'key'        => [
 				'default'           => false,
@@ -281,6 +299,69 @@ class REST_API {
 		];
 
 		return $json;
+	}
+
+	/**
+	 * Get specific repo plugin API data.
+	 *
+	 * Returns data consistent with `plugins_api()` request.
+	 *
+	 * @param \WP_REST_Request $request REST API response.
+	 *
+	 * @return array|\WP_Error
+	 */
+	public function get_plugins_api_data( \WP_REST_Request $request ) {
+		$slug       = $request->get_param( 'slug' );
+		$repo_cache = $this->get_repo_cache( $slug );
+		$gu_plugins = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
+
+		if ( ! \array_key_exists( $slug, $gu_plugins ) ) {
+			return [ 'error' => 'Specified plugin does not exist.' ];
+		}
+
+		add_filter( 'gu_disable_wpcron', '__return_false' );
+		$repo_data = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_remote_repo_meta( $gu_plugins[ $slug ] );
+
+		if ( ! is_object( $repo_data ) ) {
+			return [ 'error' => 'Plugin data response is incorrect.' ];
+		}
+
+		$plugins_api_data = [
+			'name'              => $repo_data->name,
+			'slug'              => $repo_data->slug,
+			'git'               => $repo_data->git,
+			'type'              => $repo_data->type,
+			'version'           => $repo_data->remote_version,
+			'author'            => $repo_data->author,
+			'contributors'      => $repo_data->contributors,
+			'requires'          => $repo_data->requires,
+			'tested'            => $repo_data->tested,
+			'requires_php'      => $repo_data->requires_php,
+			'sections'          => $repo_data->sections,
+			// phpcs:ignore WordPress.WP.AlternativeFunctions.strip_tags_strip_tags
+			'short_description' => substr( strip_tags( trim( $repo_data->sections['description'] ) ), 0, 175 ) . '...',
+			'primary_branch'    => $repo_data->primary_branch,
+			'branch'            => $repo_data->branch,
+			'download_link'     => $repo_data->download_link,
+			'banners'           => $repo_data->banners,
+			'icons'             => $repo_data->icons,
+			'last_updated'      => $repo_data->last_updated,
+			'num_ratings'       => $repo_data->num_ratings,
+			'rating'            => $repo_data->rating,
+			'active_installs'   => $repo_data->downloaded,
+		];
+
+		if ( ! $repo_data->download_link ) {
+			if ( $repo_cache['release_asset'] ) {
+				$plugins_api_data['download_link'] = $repo_cache['release_asset'];
+			}
+			if ( 'github' === $repo_data->git ) {
+				$plugins_api_data['download_link']   = $repo_cache['release_asset_response']->browser_download_url;
+				$plugins_api_data['active_installs'] = $repo_cache['release_asset_response']->download_count;
+			}
+		}
+
+		return $plugins_api_data;
 	}
 
 	/**
