@@ -319,6 +319,7 @@ class REST_API {
 			return [ 'error' => 'Specified plugin does not exist.' ];
 		}
 
+		add_filter( 'gu_disable_wpcron', '__return_false' );
 		$repo_data = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_remote_repo_meta( $gu_plugins[ $slug ] );
 
 		if ( ! is_object( $repo_data ) ) {
