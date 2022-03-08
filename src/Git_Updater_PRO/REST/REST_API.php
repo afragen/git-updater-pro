@@ -354,13 +354,12 @@ class REST_API {
 			'active_installs'   => $repo_data->downloaded,
 		];
 
-		if ( ! $repo_data->download_link ) {
-			if ( $repo_cache['release_asset'] ) {
-				$plugins_api_data['download_link'] = $repo_cache['release_asset'];
-			}
-			if ( 'github' === $repo_data->git && isset( $repo_cache['release_asset_response'] ) ) {
+		if ( $repo_data->release_asset ) {
+			if ( property_exists( $repo_cache['release_asset_response'], 'browser_download_url' ) ) {
 				$plugins_api_data['download_link']   = $repo_cache['release_asset_response']->browser_download_url;
 				$plugins_api_data['active_installs'] = $repo_cache['release_asset_response']->download_count;
+			} elseif ( $repo_cache['release_asset'] ) {
+				$plugins_api_data['download_link'] = $repo_cache['release_asset'];
 			}
 		}
 
