@@ -1,4 +1,6 @@
 [unreleased]
+
+#### 1.4.1 / 2022-03-12
 * fix PHP warnings in REST route if certain data not set
 * update error checking and reporting in REST route
 
