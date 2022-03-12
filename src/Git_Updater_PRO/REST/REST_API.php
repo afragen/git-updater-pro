@@ -91,7 +91,7 @@ class REST_API {
 					'slug' => [
 						'default'           => false,
 						'required'          => true,
-						'validate_callback' => 'sanitize_text_field',
+						'validate_callback' => 'sanitize_title_with_dashes',
 					],
 				],
 			]
@@ -105,11 +105,11 @@ class REST_API {
 			],
 			'plugin'     => [
 				'default'           => false,
-				'validate_callback' => 'sanitize_text_field',
+				'validate_callback' => 'sanitize_title_with_dashes',
 			],
 			'theme'      => [
 				'default'           => false,
-				'validate_callback' => 'sanitize_text_field',
+				'validate_callback' => 'sanitize_title_with_dashes',
 			],
 			'tag'        => [
 				'default'           => false,
@@ -165,11 +165,11 @@ class REST_API {
 					],
 					'plugin' => [
 						'default'           => false,
-						'validate_callback' => 'sanitize_text_field',
+						'validate_callback' => 'sanitize_title_with_dashes',
 					],
 					'theme'  => [
 						'default'           => false,
-						'validate_callback' => 'sanitize_text_field',
+						'validate_callback' => 'sanitize_title_with_dashes',
 					],
 				],
 			]
@@ -311,7 +311,10 @@ class REST_API {
 	 * @return array|\WP_Error
 	 */
 	public function get_plugins_api_data( \WP_REST_Request $request ) {
-		$slug       = $request->get_param( 'slug' );
+		$slug = $request->get_param( 'slug' );
+		if ( ! $slug ) {
+			return [ 'error' => 'The REST request likely has an invalid query argument.' ];
+		}
 		$repo_cache = $this->get_repo_cache( $slug );
 		$gu_plugins = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
 
@@ -351,13 +354,12 @@ class REST_API {
 			'active_installs'   => $repo_data->downloaded,
 		];
 
-		if ( ! $repo_data->download_link ) {
-			if ( $repo_cache['release_asset'] ) {
-				$plugins_api_data['download_link'] = $repo_cache['release_asset'];
-			}
-			if ( 'github' === $repo_data->git ) {
+		if ( $repo_data->release_asset ) {
+			if ( property_exists( $repo_cache['release_asset_response'], 'browser_download_url' ) ) {
 				$plugins_api_data['download_link']   = $repo_cache['release_asset_response']->browser_download_url;
 				$plugins_api_data['active_installs'] = $repo_cache['release_asset_response']->download_count;
+			} elseif ( $repo_cache['release_asset'] ) {
+				$plugins_api_data['download_link'] = $repo_cache['release_asset'];
 			}
 		}
 
