@@ -1,5 +1,6 @@
 [unreleased]
 * update error message return for REST route
+* require PHP7.2+
 
 #### 1.4.1 / 2022-03-12
 * fix PHP warnings in REST route if certain data not set
