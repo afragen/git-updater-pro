@@ -313,20 +313,20 @@ class REST_API {
 	public function get_plugins_api_data( \WP_REST_Request $request ) {
 		$slug = $request->get_param( 'slug' );
 		if ( ! $slug ) {
-			return [ 'error' => 'The REST request likely has an invalid query argument.' ];
+			return (object) [ 'error' => 'The REST request likely has an invalid query argument.' ];
 		}
 		$repo_cache = $this->get_repo_cache( $slug );
 		$gu_plugins = Singleton::get_instance( 'Fragen\Git_Updater\Plugin', $this )->get_plugin_configs();
 
 		if ( ! \array_key_exists( $slug, $gu_plugins ) ) {
-			return [ 'error' => 'Specified plugin does not exist.' ];
+			return (object) [ 'error' => 'Specified plugin does not exist.' ];
 		}
 
 		add_filter( 'gu_disable_wpcron', '__return_false' );
 		$repo_data = Singleton::get_instance( 'Fragen\Git_Updater\Base', $this )->get_remote_repo_meta( $gu_plugins[ $slug ] );
 
 		if ( ! is_object( $repo_data ) ) {
-			return [ 'error' => 'Plugin data response is incorrect.' ];
+			return (object) [ 'error' => 'Plugin data response is incorrect.' ];
 		}
 
 		$plugins_api_data = [

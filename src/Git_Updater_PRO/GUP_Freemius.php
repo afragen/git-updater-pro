@@ -10,8 +10,6 @@
 
 namespace Fragen\Git_Updater\PRO;
 
-use Fragen\Git_Updater\Shim;
-
 /*
  * Exit if called directly.
  */
@@ -47,7 +45,7 @@ class GUP_Freemius {
 					}
 
 					// Init Freemius SDK.
-					require_once Shim::dirname( __DIR__, 2 ) . '/vendor/freemius/wordpress-sdk/start.php';
+					require_once dirname( __DIR__, 2 ) . '/vendor/freemius/wordpress-sdk/start.php';
 
 					$gup_fs = fs_dynamic_init(
 						[
@@ -97,6 +95,6 @@ class GUP_Freemius {
 	 * @return string
 	 */
 	public function add_icon() {
-		return Shim::dirname( __DIR__, 2 ) . '/assets/icon.svg';
+		return dirname( __DIR__, 2 ) . '/assets/icon.svg';
 	}
 }

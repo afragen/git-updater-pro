@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5c64a4f397d5810c0a5f53111a4a2e8",
+    "content-hash": "1974539076318c409a7a0e412e9c649b",
     "packages": [
         {
             "name": "afragen/singleton",
@@ -100,19 +100,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/git-updater.git",
-                "reference": "3c7dd569b7106ecc239bf84d3f23d61eca4cc9c8"
+                "reference": "6266eabf20dab5e2c276031c576e9f168ee7da34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/git-updater/zipball/3c7dd569b7106ecc239bf84d3f23d61eca4cc9c8",
-                "reference": "3c7dd569b7106ecc239bf84d3f23d61eca4cc9c8",
+                "url": "https://api.github.com/repos/afragen/git-updater/zipball/6266eabf20dab5e2c276031c576e9f168ee7da34",
+                "reference": "6266eabf20dab5e2c276031c576e9f168ee7da34",
                 "shasum": ""
             },
             "require": {
                 "afragen/singleton": "dev-master",
                 "afragen/wordpress-plugin-readme-parser": "dev-master",
                 "afragen/wp-dependency-installer": "^4",
-                "freemius/wordpress-sdk": "*",
+                "freemius/wordpress-sdk": "^2.4",
                 "php": ">=5.6"
             },
             "type": "wordpress-plugin",
@@ -150,7 +150,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-06T19:19:56+00:00"
+            "time": "2022-04-23T16:27:32+00:00"
         },
         {
             "name": "afragen/wordpress-plugin-readme-parser",
@@ -361,8 +361,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6"
+        "php": ">=7.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
