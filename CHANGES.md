@@ -1,4 +1,6 @@
 [unreleased]
+
+#### 2.0.0 / 2022-04-24
 * update error message return for REST route
 * require PHP7.2+
 
