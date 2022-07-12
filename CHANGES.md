@@ -1,4 +1,5 @@
 [unreleased]
+* update Freemius/wordpress-sdk
 
 #### 2.0.0 / 2022-04-24
 * update error message return for REST route
