@@ -21,7 +21,7 @@
  * GitHub Plugin URI: https://github.com/afragen/git-updater-pro
  * GitHub Languages:  https://github.com/afragen/git-updater-pro-translations
  * Primary Branch:    main
- * Requires at least: 5.2
+ * Requires at least: 5.9
  * Requires PHP:      7.2
  * Requires Plugins:  git-updater
  */
