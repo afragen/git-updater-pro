@@ -23,7 +23,6 @@
  * Primary Branch:    main
  * Requires at least: 5.9
  * Requires PHP:      7.2
- * Requires Plugins:  git-updater
  */
 
 namespace Fragen\Git_Updater\PRO;
