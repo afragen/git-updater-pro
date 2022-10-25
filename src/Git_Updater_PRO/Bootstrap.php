@@ -33,9 +33,6 @@ class Bootstrap {
 	 * @return bool|void
 	 */
 	public function run() {
-		if ( ! gup_fs()->can_use_premium_code() ) {
-			return;
-		}
 		$this->load_hooks();
 
 		if ( static::is_wp_cli() ) {
