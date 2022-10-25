@@ -2,7 +2,7 @@
 
 * Contributors: afragen
 * Tags: branch switching, remote install, REST API, Webhooks, WP-CLI
-* Requires at least: 5.2
+* Requires at least: 5.9
 * Requires PHP: 7.2
 * Tested up to: trunk
 * Stable tag: main

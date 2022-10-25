@@ -78,15 +78,15 @@ class GUP_Freemius {
 					);
 				}
 
-				return $gup_fs;
+				// return $gup_fs;
 			}
 
 			// Init Freemius.
-			gup_fs();
+			// gup_fs();
 			// Signal that SDK was initiated.
-			do_action( 'gup_fs_loaded' );
+			// do_action( 'gup_fs_loaded' );
 		}
-		gup_fs()->add_filter( 'plugin_icon', [ $this, 'add_icon' ] );
+		// gup_fs()->add_filter( 'plugin_icon', [ $this, 'add_icon' ] );
 	}
 
 	/**

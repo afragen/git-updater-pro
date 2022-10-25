@@ -1,5 +1,8 @@
 [unreleased]
 
+#### 2.1.0 / 2022-10-25
+* strip Freemius, prelude to removal
+
 #### 2.0.1 / 2022-08-27
 * update Freemius/wordpress-sdk
 
