@@ -1,5 +1,8 @@
 [unreleased]
 
+#### 2.1.1 / 2022-10-28
+* reset Freemius to update
+
 #### 2.1.0 / 2022-10-25
 * strip Freemius, prelude to removal
 
