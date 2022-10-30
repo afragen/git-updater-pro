@@ -3,7 +3,7 @@
         'name' => 'afragen/git-updater-pro',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f6c68db015083ebeea1e66f51c3d2209508f6276',
+        'reference' => 'b7d84b6935199a9248a12fb5303e6a27a7e512f1',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'afragen/git-updater-pro' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f6c68db015083ebeea1e66f51c3d2209508f6276',
+            'reference' => 'b7d84b6935199a9248a12fb5303e6a27a7e512f1',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -28,15 +28,6 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'dev_requirement' => false,
-        ),
-        'freemius/wordpress-sdk' => array(
-            'pretty_version' => '2.4.5',
-            'version' => '2.4.5.0',
-            'reference' => 'd4aa83b1e74f3269affcbfe0d2b75ceae35ba864',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
-            'aliases' => array(),
             'dev_requirement' => false,
         ),
     ),

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1974539076318c409a7a0e412e9c649b",
+    "content-hash": "1d6ec18d65d07fd997d1d2718ff06293",
     "packages": [
         {
             "name": "afragen/singleton",
@@ -52,71 +52,35 @@
                 "source": "https://github.com/afragen/singleton/tree/master"
             },
             "time": "2020-12-24T03:45:00+00:00"
-        },
-        {
-            "name": "freemius/wordpress-sdk",
-            "version": "2.4.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Freemius/wordpress-sdk.git",
-                "reference": "d4aa83b1e74f3269affcbfe0d2b75ceae35ba864"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/d4aa83b1e74f3269affcbfe0d2b75ceae35ba864",
-                "reference": "d4aa83b1e74f3269affcbfe0d2b75ceae35ba864",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-only"
-            ],
-            "description": "Freemius WordPress SDK",
-            "homepage": "https://freemius.com",
-            "keywords": [
-                "freemius",
-                "plugin",
-                "sdk",
-                "theme",
-                "wordpress",
-                "wordpress-plugin",
-                "wordpress-theme"
-            ],
-            "support": {
-                "issues": "https://github.com/Freemius/wordpress-sdk/issues",
-                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.4.5"
-            },
-            "time": "2022-07-31T06:50:47+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "afragen/github-updater",
-            "version": "dev-master",
+            "version": "11.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/git-updater.git",
-                "reference": "e49e60476c4b403d12c83f654aa16fdf0b6a1055"
+                "reference": "fa56cc3946276fd851abee980dbd22fa8c99456b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/git-updater/zipball/e49e60476c4b403d12c83f654aa16fdf0b6a1055",
-                "reference": "e49e60476c4b403d12c83f654aa16fdf0b6a1055",
+                "url": "https://api.github.com/repos/afragen/git-updater/zipball/fa56cc3946276fd851abee980dbd22fa8c99456b",
+                "reference": "fa56cc3946276fd851abee980dbd22fa8c99456b",
                 "shasum": ""
             },
             "require": {
                 "afragen/singleton": "dev-master",
                 "afragen/wordpress-plugin-readme-parser": "dev-master",
                 "afragen/wp-dependency-installer": "^4",
-                "freemius/wordpress-sdk": "^2.4",
+                "appsero/client": "^1.2",
                 "php": ">=7.2"
             },
             "type": "wordpress-plugin",
             "autoload": {
+                "files": [
+                    "src/Git_Updater/Shim.php"
+                ],
                 "psr-4": {
                     "Fragen\\Git_Updater\\": "src/Git_Updater/"
                 }
@@ -150,7 +114,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-29T22:11:38+00:00"
+            "time": "2022-10-30T19:15:03+00:00"
         },
         {
             "name": "afragen/wordpress-plugin-readme-parser",
@@ -158,12 +122,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/wordpress-plugin-readme-parser.git",
-                "reference": "a3b3a1313a8ca870f9d1ebd97148f63045a8adf9"
+                "reference": "77fa0ee009bcfce63da1a51aa091dac20e242c98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/wordpress-plugin-readme-parser/zipball/a3b3a1313a8ca870f9d1ebd97148f63045a8adf9",
-                "reference": "a3b3a1313a8ca870f9d1ebd97148f63045a8adf9",
+                "url": "https://api.github.com/repos/afragen/wordpress-plugin-readme-parser/zipball/77fa0ee009bcfce63da1a51aa091dac20e242c98",
+                "reference": "77fa0ee009bcfce63da1a51aa091dac20e242c98",
                 "shasum": ""
             },
             "require": {
@@ -197,7 +161,7 @@
                 "issues": "https://github.com/afragen/wordpress-plugin-readme-parser/issues",
                 "source": "https://github.com/afragen/wordpress-plugin-readme-parser/tree/master"
             },
-            "time": "2022-06-10T20:13:50+00:00"
+            "time": "2022-10-14T02:55:01+00:00"
         },
         {
             "name": "afragen/wp-dependency-installer",
@@ -302,6 +266,52 @@
             "time": "2022-07-25T15:44:19+00:00"
         },
         {
+            "name": "appsero/client",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Appsero/client.git",
+                "reference": "d110c537f4ca92ac7f3398eee67cc6bdf506a4fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Appsero/client/zipball/d110c537f4ca92ac7f3398eee67cc6bdf506a4fb",
+                "reference": "d110c537f4ca92ac7f3398eee67cc6bdf506a4fb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Appsero\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tareq Hasan",
+                    "email": "tareq@appsero.com"
+                }
+            ],
+            "description": "Appsero Client",
+            "keywords": [
+                "analytics",
+                "plugin",
+                "theme",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Appsero/client/issues",
+                "source": "https://github.com/Appsero/client/tree/v1.2.1"
+            },
+            "time": "2022-06-30T12:01:38+00:00"
+        },
+        {
             "name": "erusev/parsedown",
             "version": "1.7.4",
             "source": {
@@ -355,8 +365,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "afragen/singleton": 20,
-        "afragen/github-updater": 20
+        "afragen/singleton": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

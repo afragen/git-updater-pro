@@ -31,12 +31,11 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require-dev": {
-    "afragen/github-updater": "dev-master"
+    "afragen/github-updater": "^11"
   },
   "require": {
     "php": ">=7.2",
-    "afragen/singleton": "dev-master",
-    "freemius/wordpress-sdk": "*"
+    "afragen/singleton": "dev-master"
   },
   "autoload": {
     "psr-4": {
