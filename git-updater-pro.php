@@ -55,7 +55,6 @@ if ( ! is_plugin_active( 'git-updater/git-updater.php' )
 add_action(
 	'plugins_loaded',
 	function() {
-		( new GUP_Freemius() )->init();
 		( new Bootstrap() )->run();
 	}
 );
